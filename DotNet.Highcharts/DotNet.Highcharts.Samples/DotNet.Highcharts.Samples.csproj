@@ -39,10 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNet.Highcharts, Version=1.1.0.0, Culture=neutral, PublicKeyToken=88854f873df851bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\DotNet.Highcharts.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
@@ -254,6 +250,12 @@
     <Content Include="Views\HoTos\TooltipCrosshairs.cshtml" />
     <Content Include="Views\HoTos\ThemingTheResetButton.cshtml" />
     <Content Include="Views\HoTos\PlotBandEvents.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">
+      <Project>{6fe2ea1e-85e3-4969-be6c-c08c9ba9029a}</Project>
+      <Name>DotNet.Highcharts</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
