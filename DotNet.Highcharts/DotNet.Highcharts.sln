@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.Highcharts", "DotNet.Highcharts\DotNet.Highcharts.csproj", "{6FE2EA1E-85E3-4969-BE6C-C08C9BA9029A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.Highcharts.Samples", "DotNet.Highcharts.Samples\DotNet.Highcharts.Samples.csproj", "{9BD9FBB8-2424-4FC3-9B15-805D38CEBC18}"
