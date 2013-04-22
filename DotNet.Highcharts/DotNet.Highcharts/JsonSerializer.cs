@@ -56,9 +56,9 @@ namespace DotNet.Highcharts
             if (obj is long[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as long[])));
             if (obj is double[])
-                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as double[])));
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as double[]).Select(p => p.ToString(CultureInfo.InvariantCulture))));
             if (obj is decimal[])
-                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as decimal[])));
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as decimal[]).Select(p => p.ToString(CultureInfo.InvariantCulture))));
             if (obj is Number[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as Number[])));
             if (obj is Color[]) 
