@@ -1,0 +1,12 @@
+﻿@model DotNet.Highcharts.Highcharts
+
+@{
+    ViewBag.Title = "Area with negative values";
+}
+
+@(Model)
+<script type="text/javascript">
+    function TooltipFormatter() {
+        return this.series.name + ': ' + this.y;
+    }
+</script>

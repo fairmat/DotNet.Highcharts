@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FE2EA1E-85E3-4969-BE6C-C08C9BA9029A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotNet.Highcharts</RootNamespace>
+    <AssemblyName>DotNet.Highcharts</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\DotNet.Highcharts.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>DotNet.Highcharts.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\JsonFormatterAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\NameAttribute.cs" />
+    <Compile Include="Enums\AxisTitleAligns.cs" />
+    <Compile Include="Enums\RelativeTo.cs" />
+    <Compile Include="Helpers\BackColorOrGradient.cs" />
+    <Compile Include="Helpers\Drilldown.cs" />
+    <Compile Include="Helpers\Events.cs" />
+    <Compile Include="Helpers\JsonFormatter.cs" />
+    <Compile Include="Helpers\Number.cs" />
+    <Compile Include="Helpers\PointStart.cs" />
+    <Compile Include="Helpers\Theme.cs" />
+    <Compile Include="Helpers\Tools.cs" />
+    <Compile Include="Highcharts.cs" />
+    <Compile Include="Enums\Cursors.cs" />
+    <Compile Include="Enums\DashStyles.cs" />
+    <Compile Include="Enums\HorizontalAligns.cs" />
+    <Compile Include="Enums\ChartTypes.cs" />
+    <Compile Include="Enums\EasingTypes.cs" />
+    <Compile Include="Enums\Layouts.cs" />
+    <Compile Include="Enums\Stackings.cs" />
+    <Compile Include="Enums\Symbols.cs" />
+    <Compile Include="Enums\Tickmarks.cs" />
+    <Compile Include="Enums\TickPositions.cs" />
+    <Compile Include="Enums\VerticalAligns.cs" />
+    <Compile Include="Enums\WeekDays.cs" />
+    <Compile Include="Enums\AxisTypes.cs" />
+    <Compile Include="Enums\ZoomTypes.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Helpers\Animation.cs" />
+    <Compile Include="Helpers\Crosshairs.cs" />
+    <Compile Include="Helpers\Data.cs" />
+    <Compile Include="Helpers\DateTimeLabel.cs" />
+    <Compile Include="Helpers\Lang.cs" />
+    <Compile Include="Helpers\MenuItem.cs" />
+    <Compile Include="Helpers\GlobalOptions.cs" />
+    <Compile Include="Helpers\Position.cs" />
+    <Compile Include="Container.cs" />
+    <Compile Include="JsonSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Options\Chart.cs" />
+    <Compile Include="Options\ChartEvents.cs" />
+    <Compile Include="Options\ChartResetZoomButton.cs" />
+    <Compile Include="Options\Colors.cs" />
+    <Compile Include="Options\Credits.cs" />
+    <Compile Include="Options\Exporting.cs" />
+    <Compile Include="Options\ExportingButtons.cs" />
+    <Compile Include="Options\ExportingButtonsExportButton.cs" />
+    <Compile Include="Options\ExportingButtonsPrintButton.cs" />
+    <Compile Include="Options\Global.cs" />
+    <Compile Include="Options\Labels.cs" />
+    <Compile Include="Options\LabelsItems.cs" />
+    <Compile Include="Options\Legend.cs" />
+    <Compile Include="Options\Loading.cs" />
+    <Compile Include="Options\Navigation.cs" />
+    <Compile Include="Options\NavigationButtonOptions.cs" />
+    <Compile Include="Options\PlotOptions.cs" />
+    <Compile Include="Options\PlotOptionsArea.cs" />
+    <Compile Include="Options\PlotOptionsAreaDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsAreaEvents.cs" />
+    <Compile Include="Options\PlotOptionsAreaMarker.cs" />
+    <Compile Include="Options\PlotOptionsAreaMarkerStates.cs" />
+    <Compile Include="Options\PlotOptionsAreaMarkerStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsAreaMarkerStatesSelect.cs" />
+    <Compile Include="Options\PlotOptionsAreaPoint.cs" />
+    <Compile Include="Options\PlotOptionsAreaPointEvents.cs" />
+    <Compile Include="Options\PlotOptionsAreaspline.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineEvents.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineMarker.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineMarkerStates.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineMarkerStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineMarkerStatesSelect.cs" />
+    <Compile Include="Options\PlotOptionsAreasplinePoint.cs" />
+    <Compile Include="Options\PlotOptionsAreasplinePointEvents.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineStates.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsAreasplineStatesHoverMarker.cs" />
+    <Compile Include="Options\PlotOptionsAreaStates.cs" />
+    <Compile Include="Options\PlotOptionsAreaStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsAreaStatesHoverMarker.cs" />
+    <Compile Include="Options\PlotOptionsBar.cs" />
+    <Compile Include="Options\PlotOptionsBarDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsBarEvents.cs" />
+    <Compile Include="Options\PlotOptionsBarPoint.cs" />
+    <Compile Include="Options\PlotOptionsBarPointEvents.cs" />
+    <Compile Include="Options\PlotOptionsBarStates.cs" />
+    <Compile Include="Options\PlotOptionsBarStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsBarStatesHoverMarker.cs" />
+    <Compile Include="Options\PlotOptionsColumn.cs" />
+    <Compile Include="Options\PlotOptionsColumnDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsColumnEvents.cs" />
+    <Compile Include="Options\PlotOptionsColumnPoint.cs" />
+    <Compile Include="Options\PlotOptionsColumnPointEvents.cs" />
+    <Compile Include="Options\PlotOptionsColumnStates.cs" />
+    <Compile Include="Options\PlotOptionsColumnStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsColumnStatesHoverMarker.cs" />
+    <Compile Include="Options\PlotOptionsLine.cs" />
+    <Compile Include="Options\PlotOptionsLineDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsLineEvents.cs" />
+    <Compile Include="Options\PlotOptionsLineMarker.cs" />
+    <Compile Include="Options\PlotOptionsLineMarkerStates.cs" />
+    <Compile Include="Options\PlotOptionsLineMarkerStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsLineMarkerStatesSelect.cs" />
+    <Compile Include="Options\PlotOptionsLinePoint.cs" />
+    <Compile Include="Options\PlotOptionsLinePointEvents.cs" />
+    <Compile Include="Options\PlotOptionsLineStates.cs" />
+    <Compile Include="Options\PlotOptionsLineStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsLineStatesHoverMarker.cs" />
+    <Compile Include="Options\PlotOptionsPie.cs" />
+    <Compile Include="Options\PlotOptionsPieDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsPieEvents.cs" />
+    <Compile Include="Options\PlotOptionsPiePoint.cs" />
+    <Compile Include="Options\PlotOptionsPiePointEvents.cs" />
+    <Compile Include="Options\PlotOptionsPieStates.cs" />
+    <Compile Include="Options\PlotOptionsPieStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsPieStatesHoverMarker.cs" />
+    <Compile Include="Options\PlotOptionsScatter.cs" />
+    <Compile Include="Options\PlotOptionsScatterDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsScatterEvents.cs" />
+    <Compile Include="Options\PlotOptionsScatterMarker.cs" />
+    <Compile Include="Options\PlotOptionsScatterMarkerStates.cs" />
+    <Compile Include="Options\PlotOptionsScatterMarkerStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsScatterMarkerStatesSelect.cs" />
+    <Compile Include="Options\PlotOptionsScatterPoint.cs" />
+    <Compile Include="Options\PlotOptionsScatterPointEvents.cs" />
+    <Compile Include="Options\PlotOptionsScatterStates.cs" />
+    <Compile Include="Options\PlotOptionsScatterStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsScatterStatesHoverMarker.cs" />
+    <Compile Include="Options\PlotOptionsSeries.cs" />
+    <Compile Include="Options\PlotOptionsSeriesDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsSeriesEvents.cs" />
+    <Compile Include="Options\PlotOptionsSeriesMarker.cs" />
+    <Compile Include="Options\PlotOptionsSeriesMarkerStates.cs" />
+    <Compile Include="Options\PlotOptionsSeriesMarkerStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsSeriesMarkerStatesSelect.cs" />
+    <Compile Include="Options\PlotOptionsSeriesPoint.cs" />
+    <Compile Include="Options\PlotOptionsSeriesPointEvents.cs" />
+    <Compile Include="Options\PlotOptionsSeriesStates.cs" />
+    <Compile Include="Options\PlotOptionsSeriesStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsSeriesStatesHoverMarker.cs" />
+    <Compile Include="Options\PlotOptionsSpline.cs" />
+    <Compile Include="Options\PlotOptionsSplineDataLabels.cs" />
+    <Compile Include="Options\PlotOptionsSplineEvents.cs" />
+    <Compile Include="Options\PlotOptionsSplineMarker.cs" />
+    <Compile Include="Options\PlotOptionsSplineMarkerStates.cs" />
+    <Compile Include="Options\PlotOptionsSplineMarkerStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsSplineMarkerStatesSelect.cs" />
+    <Compile Include="Options\PlotOptionsSplinePoint.cs" />
+    <Compile Include="Options\PlotOptionsSplinePointEvents.cs" />
+    <Compile Include="Options\PlotOptionsSplineStates.cs" />
+    <Compile Include="Options\PlotOptionsSplineStatesHover.cs" />
+    <Compile Include="Options\PlotOptionsSplineStatesHoverMarker.cs" />
+    <Compile Include="Options\Point.cs" />
+    <Compile Include="Options\PointEvents.cs" />
+    <Compile Include="Options\PointMarker.cs" />
+    <Compile Include="Options\Series.cs" />
+    <Compile Include="Options\Subtitle.cs" />
+    <Compile Include="Options\Symbols.cs" />
+    <Compile Include="Options\Title.cs" />
+    <Compile Include="Options\Tooltip.cs" />
+    <Compile Include="Options\XAxis.cs" />
+    <Compile Include="Options\XAxisEvents.cs" />
+    <Compile Include="Options\XAxisLabels.cs" />
+    <Compile Include="Options\XAxisPlotBands.cs" />
+    <Compile Include="Options\XAxisPlotBandsLabel.cs" />
+    <Compile Include="Options\XAxisPlotLines.cs" />
+    <Compile Include="Options\XAxisPlotLinesLabel.cs" />
+    <Compile Include="Options\XAxisTitle.cs" />
+    <Compile Include="Options\YAxis.cs" />
+    <Compile Include="Options\YAxisEvents.cs" />
+    <Compile Include="Options\YAxisLabels.cs" />
+    <Compile Include="Options\YAxisPlotBands.cs" />
+    <Compile Include="Options\YAxisPlotLines.cs" />
+    <Compile Include="Options\YAxisStackLabels.cs" />
+    <Compile Include="Options\YAxisTitle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DotNet.Highcharts.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

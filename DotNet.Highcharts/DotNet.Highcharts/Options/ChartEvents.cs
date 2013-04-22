@@ -1,0 +1,98 @@
+using System;
+using System.Drawing;
+using DotNet.Highcharts.Enums;
+using DotNet.Highcharts.Attributes;
+using DotNet.Highcharts.Helpers;
+
+namespace DotNet.Highcharts.Options
+{
+	/// <summary>
+	/// Event listeners for the chart.
+	/// </summary>
+	public class ChartEvents
+	{
+		/// <summary>
+		/// Fires when a series is added to the chart after load time, using the addSeries
+		/// method. The this keyword refers to the 
+		/// chart object itself. One parameter, event, is passed to the function.
+		/// This contains common event information based on jQuery or MooTools depending on 
+		/// which library is used as the base for Highcharts. Through event.options
+		/// you can access the series options that was passed to the addSeries 
+		/// method. Returning false prevents the series from being added.
+		/// </summary>
+		[JsonFormatter("{0}")]
+		public string AddSeries { get; set; }
+
+		/// <summary>
+		/// Fires when clicking on the plot background. The this keyword refers to the 
+		/// chart object itself. One parameter, event, is passed to the function.
+		/// This contains common event information based on jQuery or MooTools depending on 
+		/// which library is used as the base for Highcharts.
+		/// Information on the clicked spot can be found through event.xAxis and 
+		/// event.yAxis, which are arrays containing the axes of each dimension
+		/// and each axis' value at the clicked spot. The primary axes are event.xAxis[0]
+		/// and event.yAxis[0]. Remember the unit of a datetime axis is milliseconds
+		/// since 1970-01-01 00:00:00.
+		/// click: function(e) {
+		/// console.log(
+		/// Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis[0].value), 
+		/// e.yAxis[0].value
+		/// )
+		/// }
+		/// </summary>
+		[JsonFormatter("{0}")]
+		public string Click { get; set; }
+
+		/// <summary>
+		/// Fires when the chart is finished loading. The this keyword refers to the 
+		/// chart object itself. One parameter, event, is passed to the function.
+		/// This contains common event information based on jQuery or MooTools depending on 
+		/// which library is used as the base for Highcharts.
+		/// From version 2.0.4, there is also a second parameter to Highcharts.Chart
+		/// where a callback function can be passed to be executed on chart.load.
+		/// </summary>
+		[JsonFormatter("{0}")]
+		public string Load { get; set; }
+
+		/// <summary>
+		/// Fires when the chart is redrawn, either after a call to chart.redraw() or after
+		/// an axis, series or point is modified with the redraw option set to true. 
+		/// The this keyword refers to the 
+		/// chart object itself. One parameter, event, is passed to the function.
+		/// This contains common event information based on jQuery or MooTools depending on 
+		/// which library is used as the base for Highcharts.
+		/// </summary>
+		[JsonFormatter("{0}")]
+		public string Redraw { get; set; }
+
+		/// <summary>
+		/// Fires when an area of the chart has been selected. Selection is enabled by setting
+		/// the chart's zoomType. The this keyword refers to the 
+		/// chart object itself. One parameter, event, is passed to the function.
+		/// This contains common event information based on jQuery or MooTools depending on 
+		/// which library is used as the base for Highcharts. The default action for the 
+		/// selection event is to zoom the 
+		/// chart to the selected area. It can be prevented by calling 
+		/// event.preventDefault().
+		/// Information on the selected area can be found through event.xAxis and 
+		/// event.yAxis, which are arrays containing the axes of each dimension
+		/// and each axis' min and max values. The primary axes are event.xAxis[0]
+		/// and event.yAxis[0]. Remember the unit of a datetime axis is milliseconds
+		/// since 1970-01-01 00:00:00.
+		/// 
+		/// selection: function(event) {
+		/// // log the min and max of the primary, datetime x-axis
+		/// console.log(
+		/// Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', event.xAxis[0].min),
+		/// Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', event.xAxis[0].max)
+		/// );
+		/// // log the min and max of the y axis
+		/// console.log(event.yAxis[0].min, event.yAxis[0].max);
+		/// }
+		/// </summary>
+		[JsonFormatter("{0}")]
+		public string Selection { get; set; }
+
+	}
+
+}

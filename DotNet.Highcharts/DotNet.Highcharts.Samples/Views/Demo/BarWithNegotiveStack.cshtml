@@ -1,0 +1,14 @@
+﻿@model DotNet.Highcharts.Highcharts
+
+@{
+    ViewBag.Title = "Bar with negotive stack";
+}
+
+@(Model)
+
+<script type="text/javascript">
+    function TooltipFormatter() {
+        return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+                'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+    }
+</script>

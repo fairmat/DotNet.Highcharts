@@ -1,0 +1,14 @@
+﻿@model DotNet.Highcharts.Highcharts
+
+@{
+    ViewBag.Title = "Stacked and grouped column";
+}
+
+@(Model)
+<script type="text/javascript">
+    function TooltipFormatter() {
+        return '<b>' + this.x + '</b><br/>' +
+                this.series.name + ': ' + this.y + '<br/>' +
+                'Total: ' + this.point.stackTotal;
+    }
+</script>
