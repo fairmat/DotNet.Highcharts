@@ -46,6 +46,7 @@ namespace DotNet.Highcharts.Options
 		/// <summary>
 		/// The background color or gradient for the outer chart area. Defaults to "#FFFFFF"
 		/// </summary>
+		[JsonFormatter(addPropertyName: true, useCurlyBracketsForObject: false)]
 		public BackColorOrGradient BackgroundColor { get; set; }
 
 		/// <summary>
@@ -141,6 +142,7 @@ namespace DotNet.Highcharts.Options
 		/// <summary>
 		/// The background color or gradient for the plot area. Defaults to null
 		/// </summary>
+		[JsonFormatter(addPropertyName: true, useCurlyBracketsForObject: false)]
 		public BackColorOrGradient PlotBackgroundColor { get; set; }
 
 		/// <summary>
