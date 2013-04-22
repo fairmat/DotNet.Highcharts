@@ -12,7 +12,7 @@ namespace DotNet.Highcharts.Helpers
         [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
         public Color? Color { get; private set; }
 
-        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: true)]
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
         public Gradient Gradient { get; private set; }
     }
 
