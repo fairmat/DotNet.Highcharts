@@ -55,6 +55,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Attributes\NameAttribute.cs" />
+    <Compile Include="Stockcharts.cs" />
     <Compile Include="Enums\AxisTitleAligns.cs" />
     <Compile Include="Enums\RelativeTo.cs" />
     <Compile Include="Helpers\BackColorOrGradient.cs" />

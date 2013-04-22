@@ -74,5 +74,23 @@ namespace DotNet.Highcharts
                 sb.AppendLine("}", 1);
             }
         }
+
+        public static void AppendStockchart(this StringBuilder sb, Stockcharts chart)
+        {
+            foreach (KeyValuePair<string, string> jsVariable in chart.JsVariables)
+                sb.AppendLine("var {0} = {1};".FormatWith(jsVariable.Key, jsVariable.Value), 1);
+
+            sb.AppendLine(chart.Name + " = new Highcharts.Chart(\"StockChart\", {", 1);
+            sb.Append(chart.GetOptions(), 2);
+            sb.AppendLine("});", 1);
+
+            foreach (KeyValuePair<string, string> jsFunction in chart.JsFunctions)
+            {
+                sb.AppendLine();
+                sb.AppendLine(jsFunction.Key, 1);
+                sb.AppendLine(jsFunction.Value, 2);
+                sb.AppendLine("}", 1);
+            }
+        }
     }
 }
