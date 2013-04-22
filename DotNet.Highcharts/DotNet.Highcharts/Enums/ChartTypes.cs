@@ -14,7 +14,10 @@
         Column,
         Bar,
         Pie,
-        Scatter
+        Scatter,
+        Arearange,
+        Areasplinerange,
+        Columnrange
     }
 
     #endregion
