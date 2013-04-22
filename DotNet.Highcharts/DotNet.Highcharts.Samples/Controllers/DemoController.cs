@@ -1116,7 +1116,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                                                                   Rotation = -90,
                                                                   Color = ColorTranslator.FromHtml("#FFFFFF"),
                                                                   Align = HorizontalAligns.Right,
-                                                                  X = -3,
+                                                                  X = 4,
                                                                   Y = 10,
                                                                   Formatter = "function() { return this.y; }",
                                                                   Style = "font: 'normal 13px Verdana, sans-serif'"
