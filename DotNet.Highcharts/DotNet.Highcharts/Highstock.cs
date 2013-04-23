@@ -11,6 +11,7 @@ namespace DotNet.Highcharts
     {
 
         RangeSelector _RangeSelector;
+        Navigator _Navigator;
 
         /// <summary>
         /// The chart object is the JavaScript object representing a single chart in the web page.
@@ -114,7 +115,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <remarks>This is available only with Highstock.</remarks>
         /// <param name="rangeSelector">
-        /// A reference to the <see cref="RangeSelector"/> object containing the selected options.
+        /// A reference to a <see cref="RangeSelector"/> object containing the selected options.
         /// </param>
         /// <returns>A reference to this class, useful for chained settings.</returns>
         public HighStock SetRangeSelector(RangeSelector rangeSelector)
@@ -231,6 +232,23 @@ namespace DotNet.Highcharts
         }
 
         /// <summary>
+        /// The navigator is a small series below the main series, displaying a view of the
+        /// entire data set. It provides tools to zoom in and out on parts of the data
+        /// as well as panning across the dataset.
+        /// This object contains all the options which can be applied to this part of the chart.
+        /// </summary>
+        /// <remarks>This is available only with Highstock.</remarks>
+        /// <param name="navigator">
+        /// A reference to a <see cref="Navigator"/> object containing the selected options.
+        /// </param>
+        /// <returns>A reference to this class, useful for chained settings.</returns>
+        public HighStock SetRangeSelector(Navigator navigator)
+        {
+            _Navigator = navigator;
+            return this;
+        }
+
+        /// <summary>
         /// Add the javascript variable to the same jQuery document ready where chart is initialized.
         /// Variables are added before the chart.
         /// </summary>
@@ -295,6 +313,12 @@ namespace DotNet.Highcharts
             {
                 options.AppendLine(", ");
                 options.Append("rangeSelector: {0}".FormatWith(JsonSerializer.Serialize(_RangeSelector)), 2);
+            }
+
+            if (_Navigator != null)
+            {
+                options.AppendLine(", ");
+                options.Append("navigator: {0}".FormatWith(JsonSerializer.Serialize(_Navigator)), 2);
             }
 
             options.AppendLine();
