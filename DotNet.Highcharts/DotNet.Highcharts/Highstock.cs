@@ -9,6 +9,9 @@ namespace DotNet.Highcharts
 {
     public class HighStock : Highcharts
     {
+
+        RangeSelector _RangeSelector;
+
         /// <summary>
         /// The chart object is the JavaScript object representing a single chart in the web page.
         /// </summary>
@@ -99,6 +102,24 @@ namespace DotNet.Highcharts
         public new HighStock SetPlotOptions(PlotOptions plotOptions)
         {
             base.SetPlotOptions(plotOptions);
+            return this;
+        }
+
+        /// <summary>
+        /// The range selector is a tool for selecting ranges to display within the chart.
+        /// It provides buttons to select preconfigured ranges in the chart,
+        /// like 1 day, 1 week, 1 month etc. It also provides input boxes
+        /// where min and max dates can be manually input.
+        /// This object contains all the options which can be applied to this part of the chart.
+        /// </summary>
+        /// <remarks>This is available only with Highstock.</remarks>
+        /// <param name="rangeSelector">
+        /// A reference to the <see cref="RangeSelector"/> object containing the selected options.
+        /// </param>
+        /// <returns>A reference to this class, useful for chained settings.</returns>
+        public HighStock SetRangeSelector(RangeSelector rangeSelector)
+        {
+            _RangeSelector = rangeSelector;
             return this;
         }
 
@@ -267,13 +288,18 @@ namespace DotNet.Highcharts
 
         public override string GetOptions()
         {
-            return base.GetOptions();
-            /*StringBuilder options = new StringBuilder();
+            StringBuilder options = new StringBuilder();
             options.Append(base.GetOptions());
+            
+            if (_RangeSelector!= null)
+            {
+                options.AppendLine(", ");
+                options.Append("rangeSelector: {0}".FormatWith(JsonSerializer.Serialize(_RangeSelector)), 2);
+            }
 
             options.AppendLine();
 
-            return options.ToString();*/
+            return options.ToString();
         }
     }
 }
