@@ -30,7 +30,11 @@ $(function(){
       jQuery.each(tsv, function(i, line) {
 
          // listen for data lines between the Graph and Table headers
-         if (tsv[i - 3] == '# Graph') {
+         // Additionally don't check for equality to avoid spurious
+         // lines termination which might be added when CRLF is in the file.
+         // This might happen when the code is checked out in Windows.
+         var graphText = "# Graph";
+         if (i > 3 && tsv[i - 3].substring(0, graphText.length) == graphText) {
             listen = true;
          } else if (line == '' || line.charAt(0) == '#') {
             listen = false;
