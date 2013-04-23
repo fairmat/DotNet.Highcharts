@@ -1,7 +1,7 @@
 DotNet.Highcharts
 =================
 
-This library provides Highcharts integration with ASP.NET/.NET applications.
+This library provides [Highcharts](http://www.highcharts.com/) integration with ASP.NET/.NET applications.
 
 This is a fork of the library originally developed from Vangel Kolarov available here: http://dotnethighcharts.codeplex.com/
 
