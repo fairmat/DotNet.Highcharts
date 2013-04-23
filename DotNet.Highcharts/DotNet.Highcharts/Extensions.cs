@@ -83,7 +83,7 @@ namespace DotNet.Highcharts
             }
         }
 
-        public static void AppendStockchart(this StringBuilder sb, HighStock chart)
+        public static void AppendStockchart(this StringBuilder sb, Highstock chart)
         {
             foreach (KeyValuePair<string, string> jsVariable in chart.JsVariables)
                 sb.AppendLine("var {0} = {1};".FormatWith(jsVariable.Key, jsVariable.Value), 1);

@@ -1913,7 +1913,7 @@ namespace DotNet.Highcharts.Samples.Controllers
 
         public ActionResult HighstockBasicLine()
         {
-            HighStock chart = new HighStock("chart")
+            Highstock chart = new Highstock("chart")
                 .InitChart(new Chart
                 {
                     DefaultSeriesType = ChartTypes.Line,

@@ -7,7 +7,7 @@ using DotNet.Highcharts.Options;
 
 namespace DotNet.Highcharts
 {
-    public class HighStock : Highcharts
+    public class Highstock : Highcharts
     {
 
         RangeSelector _RangeSelector;
@@ -19,7 +19,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="name">The object name of the chart and related container</param>
         /// <see cref="http://www.highcharts.com/ref/"/>
-        public HighStock(string name, bool useJQueryPlugin = false)
+        public Highstock(string name, bool useJQueryPlugin = false)
             : base(name, useJQueryPlugin)
         {
         }
@@ -29,7 +29,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public new HighStock SetOptions(GlobalOptions options)
+        public new Highstock SetOptions(GlobalOptions options)
         {
             base.SetOptions(options);
             return this;
@@ -40,7 +40,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="chart"></param>
         /// <returns></returns>
-        public new HighStock InitChart(Chart chart)
+        public new Highstock InitChart(Chart chart)
         {
             base.InitChart(chart);
             return this;
@@ -50,7 +50,7 @@ namespace DotNet.Highcharts
         /// Highchart by default puts a credits label in the lower right corner of the chart. 
         /// This can be changed using these options.
         /// </summary>
-        public new HighStock SetCredits(Credits credits)
+        public new Highstock SetCredits(Credits credits)
         {
             base.SetCredits(credits);
             return this;
@@ -61,7 +61,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="labels"></param>
         /// <returns></returns>
-        public new HighStock SetLabels(Labels labels)
+        public new Highstock SetLabels(Labels labels)
         {
             base.SetLabels(labels);
             return this;
@@ -72,7 +72,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="legend"></param>
         /// <returns></returns>
-        public new HighStock SetLegend(Legend legend)
+        public new Highstock SetLegend(Legend legend)
         {
             base.SetLegend(legend);
             return this;
@@ -86,7 +86,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="loading"></param>
         /// <returns></returns>
-        public new HighStock SetLoading(Loading loading)
+        public new Highstock SetLoading(Loading loading)
         {
             base.SetLoading(loading);
             return this;
@@ -101,7 +101,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="plotOptions"></param>
         /// <returns></returns>
-        public new HighStock SetPlotOptions(PlotOptions plotOptions)
+        public new Highstock SetPlotOptions(PlotOptions plotOptions)
         {
             base.SetPlotOptions(plotOptions);
             return this;
@@ -119,7 +119,7 @@ namespace DotNet.Highcharts
         /// A reference to a <see cref="RangeSelector"/> object containing the selected options.
         /// </param>
         /// <returns>A reference to this class, useful for chained settings.</returns>
-        public HighStock SetRangeSelector(RangeSelector rangeSelector)
+        public Highstock SetRangeSelector(RangeSelector rangeSelector)
         {
             _RangeSelector = rangeSelector;
             return this;
@@ -132,12 +132,12 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="series"></param>
         /// <returns></returns>
-        public new HighStock SetSeries(Series series)
+        public new Highstock SetSeries(Series series)
         {
             base.SetSeries(series);
             return this;
         }
-        public new HighStock SetSeries(Series[] seriesArray)
+        public new Highstock SetSeries(Series[] seriesArray)
         {
             base.SetSeries(seriesArray);
             return this;
@@ -148,7 +148,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="subtitle"></param>
         /// <returns></returns>
-        public new HighStock SetSubtitle(Subtitle subtitle)
+        public new Highstock SetSubtitle(Subtitle subtitle)
         {
             base.SetSubtitle(subtitle);
             return this;
@@ -159,7 +159,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="title"></param>
         /// <returns></returns>
-        public new HighStock SetTitle(Title title)
+        public new Highstock SetTitle(Title title)
         {
             base.SetTitle(title);
             return this;
@@ -170,7 +170,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="tooltip"></param>
         /// <returns></returns>
-        public new HighStock SetTooltip(Tooltip tooltip)
+        public new Highstock SetTooltip(Tooltip tooltip)
         {
             base.SetTooltip(tooltip);
             return this;
@@ -182,12 +182,12 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="xAxis"></param>
         /// <returns></returns>
-        public new HighStock SetXAxis(XAxis xAxis)
+        public new Highstock SetXAxis(XAxis xAxis)
         {
             base.SetXAxis(xAxis);
             return this;
         }
-        public new HighStock SetXAxis(XAxis[] xAxisArray)
+        public new Highstock SetXAxis(XAxis[] xAxisArray)
         {
             base.SetXAxis(xAxisArray);
             return this;
@@ -199,12 +199,12 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="yAxis"></param>
         /// <returns></returns>
-        public new HighStock SetYAxis(YAxis yAxis)
+        public new Highstock SetYAxis(YAxis yAxis)
         {
             base.SetYAxis(yAxis);
             return this;
         }
-        public new HighStock SetYAxis(YAxis[] yAxisArray)
+        public new Highstock SetYAxis(YAxis[] yAxisArray)
         {
             base.SetYAxis(yAxisArray);
             return this;
@@ -215,7 +215,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="exporting"></param>
         /// <returns></returns>
-        public new HighStock SetExporting(Exporting exporting)
+        public new Highstock SetExporting(Exporting exporting)
         {
             base.SetExporting(exporting);
             return this;
@@ -226,7 +226,7 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="navigation"></param>
         /// <returns></returns>
-        public new HighStock SetNavigation(Navigation navigation)
+        public new Highstock SetNavigation(Navigation navigation)
         {
             base.SetNavigation(navigation);
             return this;
@@ -243,7 +243,7 @@ namespace DotNet.Highcharts
         /// A reference to a <see cref="Navigator"/> object containing the selected options.
         /// </param>
         /// <returns>A reference to this class, useful for chained settings.</returns>
-        public HighStock SetRangeSelector(Navigator navigator)
+        public Highstock SetRangeSelector(Navigator navigator)
         {
             _Navigator = navigator;
             return this;
@@ -258,7 +258,7 @@ namespace DotNet.Highcharts
         /// A reference to a <see cref="Scrollbar"/> object containing the selected options.
         /// </param>
         /// <returns>A reference to this class, useful for chained settings.</returns>
-        public HighStock SetScrollbar(Scrollbar scrollbar)
+        public Highstock SetScrollbar(Scrollbar scrollbar)
         {
             _Scrollbar = scrollbar;
             return this;
@@ -271,7 +271,7 @@ namespace DotNet.Highcharts
         /// <param name="name">The name of the variable.</param>
         /// <param name="value">The value of the variable.</param>
         /// <returns></returns>
-        public new HighStock AddJavascripVariable(string name, string value)
+        public new Highstock AddJavascripVariable(string name, string value)
         {
             base.AddJavascripVariable(name, value);
             return this;
@@ -285,13 +285,13 @@ namespace DotNet.Highcharts
         /// <param name="body">The body of the function.</param>
         /// <param name="variables">The variables of the function.</param>
         /// <returns></returns>
-        public new HighStock AddJavascripFunction(string name, string body, params string[] variables)
+        public new Highstock AddJavascripFunction(string name, string body, params string[] variables)
         {
             base.AddJavascripFunction(name, body, variables);
             return this;
         }
 
-        public new HighStock InFunction(string name)
+        public new Highstock InFunction(string name)
         {
             base.InFunction(name);
             return this;
