@@ -167,6 +167,13 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public bool? PlotShadow { get; set; }
 
+        /// <summary>
+        /// When true, cartesian charts like line, spline, area and column are transformed
+        /// into the polar coordinate system. Requires highcharts-more.js.
+        /// Defaults to false.
+        /// </summary>
+        public bool? Polar { get; set; }
+
 		/// <summary>
 		/// Whether to reflow the chart to fit the width of the container div on resizing the window. Defaults to true
 		/// </summary>
