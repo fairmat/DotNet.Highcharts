@@ -1,0 +1,15 @@
+﻿@model DotNet.Highcharts.HighStock
+@{
+    ViewBag.Title = "Highstock Basic Line";
+}
+@(Model)
+
+<script type="text/javascript">
+    $(function ()
+    {
+        $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data)
+        {
+            chart.series[0].setData(data);
+        })
+    });
+</script>

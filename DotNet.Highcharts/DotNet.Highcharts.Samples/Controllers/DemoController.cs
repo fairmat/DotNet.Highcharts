@@ -1909,5 +1909,32 @@ namespace DotNet.Highcharts.Samples.Controllers
 
             return View(chart);
         }
+
+
+        public ActionResult HighstockBasicLine()
+        {
+            HighStock chart = new HighStock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Line,
+                    ClassName = "chart"
+                })
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetSeries(new[]
+                           {
+                               new Series { Name = "AAPL" },
+                           }
+                );
+
+            return View(chart);
+        }
+
     }
 }

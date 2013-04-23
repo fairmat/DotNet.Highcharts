@@ -267,6 +267,7 @@
     <Content Include="Views\HoTos\TooltipCrosshairs.cshtml" />
     <Content Include="Views\HoTos\ThemingTheResetButton.cshtml" />
     <Content Include="Views\HoTos\PlotBandEvents.cshtml" />
+    <Content Include="Views\Demo\HighstockBasicLine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">
