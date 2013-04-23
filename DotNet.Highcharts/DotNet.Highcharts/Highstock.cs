@@ -14,8 +14,8 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="name">The object name of the chart and related container</param>
         /// <see cref="http://www.highcharts.com/ref/"/>
-        public HighStock(string name)
-            : base(name)
+        public HighStock(string name, bool useJQueryPlugin = false)
+            : base(name, useJQueryPlugin)
         {
         }
 

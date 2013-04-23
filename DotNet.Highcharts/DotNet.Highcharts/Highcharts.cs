@@ -12,6 +12,8 @@ namespace DotNet.Highcharts
         internal string Name { get; private set; }
         internal string ContainerName { get; private set; }
 
+        internal bool UseJQueryPlugin { get; private set; }
+
         internal IDictionary<string, string> JsVariables { get; private set; }
         internal IDictionary<string, string> JsFunctions { get; private set; }
 
@@ -43,12 +45,13 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="name">The object name of the chart and related container</param>
         /// <see cref="http://www.highcharts.com/ref/"/>
-        public Highcharts(string name)
+        public Highcharts(string name, bool useJQueryPlugin = false)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The name of the chart must be specified.");
 
             Name = name;
+            UseJQueryPlugin = useJQueryPlugin;
             ContainerName = "{0}_container".FormatWith(name);
             JsVariables = new Dictionary<string, string>();
             JsFunctions = new Dictionary<string, string>();
@@ -303,7 +306,18 @@ namespace DotNet.Highcharts
         public virtual string GetOptions()
         {
             StringBuilder options = new StringBuilder();
-            options.Append(_Chart != null ? "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_Chart, false)) : "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
+
+            if (UseJQueryPlugin)
+            {
+                if (_Chart != null)
+                {
+                    options.Append("chart: {{ {0} }}".FormatWith(JsonSerializer.Serialize(_Chart, false)));
+                }
+            }
+            else
+            {
+                options.Append(_Chart != null ? "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_Chart, false)) : "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
+            }
 
             if (_Credits != null)
             {

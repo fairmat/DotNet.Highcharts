@@ -62,7 +62,15 @@ namespace DotNet.Highcharts
             foreach (KeyValuePair<string, string> jsVariable in chart.JsVariables)
                 sb.AppendLine("var {0} = {1};".FormatWith(jsVariable.Key, jsVariable.Value), 1);
 
-            sb.AppendLine(chart.Name + " = new Highcharts.Chart({", 1);
+            if (chart.UseJQueryPlugin)
+            {
+                sb.AppendLine("$('" + chart.ContainerName + "'.highcharts({", 1);
+            }
+            else
+            {
+                sb.AppendLine(chart.Name + " = new Highcharts.Chart({", 1);
+            }
+
             sb.Append(chart.GetOptions(), 2);
             sb.AppendLine("});", 1);
 
@@ -80,7 +88,15 @@ namespace DotNet.Highcharts
             foreach (KeyValuePair<string, string> jsVariable in chart.JsVariables)
                 sb.AppendLine("var {0} = {1};".FormatWith(jsVariable.Key, jsVariable.Value), 1);
 
-            sb.AppendLine(chart.Name + " = new Highcharts.StockChart({", 1);
+            if (chart.UseJQueryPlugin)
+            {
+                sb.AppendLine("$('" + chart.ContainerName + "'.highcharts('StockChart', {", 1);
+            }
+            else
+            {
+                sb.AppendLine(chart.Name + " = new Highcharts.StockChart({", 1);
+            }
+
             sb.Append(chart.GetOptions(), 2);
             sb.AppendLine("});", 1);
 
