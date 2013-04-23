@@ -4,7 +4,7 @@ using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Attributes;
 using DotNet.Highcharts.Helpers;
 
-/// TODO: baseSeries, handles, maskFill, outlineColor, series, xAxis, yAxis.
+/// TODO: baseSeries, handles, series, xAxis, yAxis.
 namespace DotNet.Highcharts.Options
 {
 	/// <summary>
@@ -35,6 +35,20 @@ namespace DotNet.Highcharts.Options
         /// The distance from the nearest element, the X axis or X axis labels. Defaults to 10.
         /// </summary>
         public Number? Margin { get; set; }
+
+        /// <summary>
+        /// The color of the mask covering the areas of the navigator series that are currently
+        /// not visible in the main series. 
+        /// The default color is white with an opacity of 0.75 to see the series below.
+        /// Defaults to rgba(255, 255, 255, 0.75).
+        /// </summary>
+        public Color? MaskFill { get; set; }
+
+        /// <summary>
+        /// The color of the line marking the currently zoomed area in the navigator.
+        /// Defaults to #444.
+        /// </summary>
+        public Color? OutlineColor { get; set; }
 
         /// <summary>
         /// The width of the line marking the currently zoomed area in the navigator.
