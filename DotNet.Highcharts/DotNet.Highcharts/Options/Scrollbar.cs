@@ -4,8 +4,6 @@ using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Attributes;
 using DotNet.Highcharts.Helpers;
 
-/// TODO: barBackgroundColor, barBorderColor, buttonArrowColor, buttonBackgroundColor,
-///       buttonBorderColor, rifleColor, trackBackgroundColor, trackBorderColor, trackBorderWidth.
 namespace DotNet.Highcharts.Options
 {
 	/// <summary>
@@ -13,6 +11,16 @@ namespace DotNet.Highcharts.Options
 	/// </summary>
 	public class Scrollbar
 	{
+        /// <summary>
+        /// The background color of the scrollbar itself. Defaults to a gray gradient.
+        /// </summary>
+        public BackColorOrGradient BarBackgroundColor { get; set; }
+
+        /// <summary>
+        /// The color of the bar's border. Defaults to #666.
+        /// </summary>
+        public Color? BarBorderColor { get; set; }
+
         /// <summary>
         /// The border rounding radius of the bar. Defaults to 2.
         /// </summary>
@@ -22,6 +30,21 @@ namespace DotNet.Highcharts.Options
         /// The width of the bar's border. Defaults to 1.
         /// </summary>
         public Number? BarBorderWidth { get; set; }
+
+        /// <summary>
+        /// The color of the small arrow inside the scrollbar buttons. Defaults to #666.
+        /// </summary>
+        public Color? ButtonArrowColor { get; set; }
+
+        /// <summary>
+        /// The color of scrollbar buttons. Defaults to a gray gradient.
+        /// </summary>
+        public BackColorOrGradient ButtonBackgroundColor { get; set; }
+
+        /// <summary>
+        /// The color of the border of the scrollbar buttons. Defaults to #666.
+        /// </summary>
+        public Color? ButtonBorderColor { get; set; }
 
         /// <summary>
         /// The corner radius of the scrollbar buttons. Defaults to 2.
@@ -58,8 +81,28 @@ namespace DotNet.Highcharts.Options
         public Number? MinWidth { get; set; }
 
         /// <summary>
+        /// The color of the small rifles in the middle of the scrollbar. Defaults to #666.
+        /// </summary>
+        public Color? RifleColor { get; set; }
+
+        /// <summary>
+        /// The color of the track background. The default is a gray gradient.
+        /// </summary>
+        public BackColorOrGradient TrackBackgroundColor { get; set; }
+
+        /// <summary>
+        /// The color of the border of the scrollbar track.
+        /// </summary>
+        public Color? TrackBorderColor { get; set; }
+
+        /// <summary>
         /// The corner radius of the border of the scrollbar track. Defaults to 0.
         /// </summary>
         public Number? TrackBorderRadius { get; set; }
+
+        /// <summary>
+        /// The width of the border of the scrollbar track. Defaults to 1.
+        /// </summary>
+        public Number? TrackBorderWidth { get; set; }
 	}
 }
