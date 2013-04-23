@@ -7,61 +7,26 @@ using DotNet.Highcharts.Options;
 
 namespace DotNet.Highcharts
 {
-    public class Stockcharts : IHtmlString
+    public class HighStock : Highcharts
     {
-        internal string Name { get; private set; }
-        internal string ContainerName { get; private set; }
-
-        internal IDictionary<string, string> JsVariables { get; private set; }
-        internal IDictionary<string, string> JsFunctions { get; private set; }
-
-        internal GlobalOptions Options { get; private set; }
-
-        internal string FunctionName { get; private set; }
-
-        Chart _Chart;
-        Credits _Credits;
-        Labels _Labels;
-        Legend _Legend;
-        Loading _Loading;
-        PlotOptions _PlotOptions;
-        Series _Series;
-        Series[] _SeriesArray;
-        Subtitle _Subtitle;
-        Title _Title;
-        Tooltip _Tooltip;
-        XAxis _XAxis;
-        XAxis[] _XAxisArray;
-        YAxis _YAxis;
-        YAxis[] _YAxisArray;
-        Exporting _Exporting;
-        Navigation _Navigation;
-
-
         /// <summary>
         /// The chart object is the JavaScript object representing a single chart in the web page.
         /// </summary>
         /// <param name="name">The object name of the chart and related container</param>
         /// <see cref="http://www.highcharts.com/ref/"/>
-        public Stockcharts(string name)
+        public HighStock(string name)
+            : base(name)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("The name of the chart must be specified.");
-
-            Name = name;
-            ContainerName = "{0}_container".FormatWith(name);
-            JsVariables = new Dictionary<string, string>();
-            JsFunctions = new Dictionary<string, string>();
         }
 
         /// <summary>
-        /// Global options that don't apply to each chart. These options, like the lang options, must be set using the Highcharts.setOptions method.
+        /// Global options that don't apply to each chart. These options, like the lang options, must be set using the Highstock.setOptions method.
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public Stockcharts SetOptions(GlobalOptions options)
+        public new HighStock SetOptions(GlobalOptions options)
         {
-            Options = options;
+            base.SetOptions(options);
             return this;
         }
 
@@ -70,9 +35,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="chart"></param>
         /// <returns></returns>
-        public Stockcharts InitChart(Chart chart)
+        public new HighStock InitChart(Chart chart)
         {
-            _Chart = chart;
+            base.InitChart(chart);
             return this;
         }
 
@@ -80,9 +45,9 @@ namespace DotNet.Highcharts
         /// Highchart by default puts a credits label in the lower right corner of the chart. 
         /// This can be changed using these options.
         /// </summary>
-        public Stockcharts SetCredits(Credits credits)
+        public new HighStock SetCredits(Credits credits)
         {
-            _Credits = credits;
+            base.SetCredits(credits);
             return this;
         }
 
@@ -91,9 +56,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="labels"></param>
         /// <returns></returns>
-        public Stockcharts SetLabels(Labels labels)
+        public new HighStock SetLabels(Labels labels)
         {
-            _Labels = labels;
+            base.SetLabels(labels);
             return this;
         }
 
@@ -102,9 +67,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="legend"></param>
         /// <returns></returns>
-        public Stockcharts SetLegend(Legend legend)
+        public new HighStock SetLegend(Legend legend)
         {
-            _Legend = legend;
+            base.SetLegend(legend);
             return this;
         }
 
@@ -116,9 +81,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="loading"></param>
         /// <returns></returns>
-        public Stockcharts SetLoading(Loading loading)
+        public new HighStock SetLoading(Loading loading)
         {
-            _Loading = loading;
+            base.SetLoading(loading);
             return this;
         }
 
@@ -131,9 +96,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="plotOptions"></param>
         /// <returns></returns>
-        public Stockcharts SetPlotOptions(PlotOptions plotOptions)
+        public new HighStock SetPlotOptions(PlotOptions plotOptions)
         {
-            _PlotOptions = plotOptions;
+            base.SetPlotOptions(plotOptions);
             return this;
         }
 
@@ -144,14 +109,14 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="series"></param>
         /// <returns></returns>
-        public Stockcharts SetSeries(Series series)
+        public new HighStock SetSeries(Series series)
         {
-            _Series = series;
+            base.SetSeries(series);
             return this;
         }
-        public Stockcharts SetSeries(Series[] seriesArray)
+        public new HighStock SetSeries(Series[] seriesArray)
         {
-            _SeriesArray = seriesArray;
+            base.SetSeries(seriesArray);
             return this;
         }
 
@@ -160,9 +125,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="subtitle"></param>
         /// <returns></returns>
-        public Stockcharts SetSubtitle(Subtitle subtitle)
+        public new HighStock SetSubtitle(Subtitle subtitle)
         {
-            _Subtitle = subtitle;
+            base.SetSubtitle(subtitle);
             return this;
         }
 
@@ -171,9 +136,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="title"></param>
         /// <returns></returns>
-        public Stockcharts SetTitle(Title title)
+        public new HighStock SetTitle(Title title)
         {
-            _Title = title;
+            base.SetTitle(title);
             return this;
         }
 
@@ -182,9 +147,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="tooltip"></param>
         /// <returns></returns>
-        public Stockcharts SetTooltip(Tooltip tooltip)
+        public new HighStock SetTooltip(Tooltip tooltip)
         {
-            _Tooltip = tooltip;
+            base.SetTooltip(tooltip);
             return this;
         }
 
@@ -194,14 +159,14 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="xAxis"></param>
         /// <returns></returns>
-        public Stockcharts SetXAxis(XAxis xAxis)
+        public new HighStock SetXAxis(XAxis xAxis)
         {
-            _XAxis = xAxis;
+            base.SetXAxis(xAxis);
             return this;
         }
-        public Stockcharts SetXAxis(XAxis[] xAxisArray)
+        public new HighStock SetXAxis(XAxis[] xAxisArray)
         {
-            _XAxisArray = xAxisArray;
+            base.SetXAxis(xAxisArray);
             return this;
         }
 
@@ -211,14 +176,14 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="yAxis"></param>
         /// <returns></returns>
-        public Stockcharts SetYAxis(YAxis yAxis)
+        public new HighStock SetYAxis(YAxis yAxis)
         {
-            _YAxis = yAxis;
+            base.SetYAxis(yAxis);
             return this;
         }
-        public Stockcharts SetYAxis(YAxis[] yAxisArray)
+        public new HighStock SetYAxis(YAxis[] yAxisArray)
         {
-            _YAxisArray = yAxisArray;
+            base.SetYAxis(yAxisArray);
             return this;
         }
 
@@ -227,9 +192,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="exporting"></param>
         /// <returns></returns>
-        public Stockcharts SetExporting(Exporting exporting)
+        public new HighStock SetExporting(Exporting exporting)
         {
-            _Exporting = exporting;
+            base.SetExporting(exporting);
             return this;
         }
 
@@ -238,9 +203,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="navigation"></param>
         /// <returns></returns>
-        public Stockcharts SetNavigation(Navigation navigation)
+        public new HighStock SetNavigation(Navigation navigation)
         {
-            _Navigation = navigation;
+            base.SetNavigation(navigation);
             return this;
         }
 
@@ -251,9 +216,9 @@ namespace DotNet.Highcharts
         /// <param name="name">The name of the variable.</param>
         /// <param name="value">The value of the variable.</param>
         /// <returns></returns>
-        public Stockcharts AddJavascripVariable(string name, string value)
+        public new HighStock AddJavascripVariable(string name, string value)
         {
-            JsVariables.Add(name, value);
+            base.AddJavascripVariable(name, value);
             return this;
         }
 
@@ -265,21 +230,21 @@ namespace DotNet.Highcharts
         /// <param name="body">The body of the function.</param>
         /// <param name="variables">The variables of the function.</param>
         /// <returns></returns>
-        public Stockcharts AddJavascripFunction(string name, string body, params string[] variables)
+        public new HighStock AddJavascripFunction(string name, string body, params string[] variables)
         {
-            JsFunctions.Add("function {0}({1}){{".FormatWith(name, string.Join(", ", variables)), body);
+            base.AddJavascripFunction(name, body, variables);
             return this;
         }
 
-        public Stockcharts InFunction(string name)
+        public new HighStock InFunction(string name)
         {
-            FunctionName = name;
+            base.InFunction(name);
             return this;
         }
 
         #region IHtmlString Members
 
-        public string ToHtmlString()
+        public override string ToHtmlString()
         {
             StringBuilder scripts = new StringBuilder();
 
@@ -300,107 +265,15 @@ namespace DotNet.Highcharts
 
         #endregion
 
-        public string GetOptions()
+        public override string GetOptions()
         {
-            StringBuilder options = new StringBuilder();
-            options.Append(_Chart != null ? "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_Chart, false)) : "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
+            return base.GetOptions();
+            /*StringBuilder options = new StringBuilder();
+            options.Append(base.GetOptions());
 
-            if (_Credits != null)
-            {
-                options.AppendLine(", ");
-                options.Append("credits: {0}".FormatWith(JsonSerializer.Serialize(_Credits)), 2);
-            }
-
-            if (_Labels != null)
-            {
-                options.AppendLine(", ");
-                options.Append("labels: {0}".FormatWith(JsonSerializer.Serialize(_Labels)), 2);
-            }
-
-            if (_Legend != null)
-            {
-                options.AppendLine(", ");
-                options.Append("legend: {0}".FormatWith(JsonSerializer.Serialize(_Legend)), 2);
-            }
-
-            if (_Loading != null)
-            {
-                options.AppendLine(", ");
-                options.Append("loading: {0}".FormatWith(JsonSerializer.Serialize(_Loading)), 2);
-            }
-
-            if (_PlotOptions != null)
-            {
-                options.AppendLine(", ");
-                options.Append("plotOptions: {0}".FormatWith(JsonSerializer.Serialize(_PlotOptions)), 2);
-            }
-
-            if (_Subtitle != null)
-            {
-                options.AppendLine(", ");
-                options.Append("subtitle: {0}".FormatWith(JsonSerializer.Serialize(_Subtitle)), 2);
-            }
-
-            if (_Title != null)
-            {
-                options.AppendLine(", ");
-                options.Append("title: {0}".FormatWith(JsonSerializer.Serialize(_Title)), 2);
-            }
-
-            if (_Tooltip != null)
-            {
-                options.AppendLine(", ");
-                options.Append("tooltip: {0}".FormatWith(JsonSerializer.Serialize(_Tooltip)), 2);
-            }
-
-            if (_XAxis != null)
-            {
-                options.AppendLine(", ");
-                options.Append("xAxis: {0}".FormatWith(JsonSerializer.Serialize(_XAxis)), 2);
-            }
-
-            if (_XAxisArray != null)
-            {
-                options.AppendLine(", ");
-                options.Append("xAxis: {0}".FormatWith(JsonSerializer.Serialize(_XAxisArray)), 2);
-            }
-
-            if (_YAxis != null)
-            {
-                options.AppendLine(", ");
-                options.Append("yAxis: {0}".FormatWith(JsonSerializer.Serialize(_YAxis)), 2);
-            }
-            else if (_YAxisArray != null)
-            {
-                options.AppendLine(", ");
-                options.Append("yAxis: {0}".FormatWith(JsonSerializer.Serialize(_YAxisArray)), 2);
-            }
-
-            if (_Exporting != null)
-            {
-                options.AppendLine(", ");
-                options.Append("exporting: {0}".FormatWith(JsonSerializer.Serialize(_Exporting)), 2);
-            }
-
-            if (_Navigation != null)
-            {
-                options.AppendLine(", ");
-                options.Append("navigation: {0}".FormatWith(JsonSerializer.Serialize(_Navigation)), 2);
-            }
-
-            if (_Series != null)
-            {
-                options.AppendLine(", ");
-                options.Append("series: [{0}]".FormatWith(JsonSerializer.Serialize(_Series)), 2);
-            }
-            else if (_SeriesArray != null)
-            {
-                options.AppendLine(", ");
-                options.Append("series: {0}".FormatWith(JsonSerializer.Serialize(_SeriesArray)), 2);
-            }
             options.AppendLine();
 
-            return options.ToString();
+            return options.ToString();*/
         }
     }
 }

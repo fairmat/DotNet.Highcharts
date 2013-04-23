@@ -279,7 +279,7 @@ namespace DotNet.Highcharts
 
         #region IHtmlString Members
 
-        public string ToHtmlString()
+        public virtual string ToHtmlString()
         {
             StringBuilder scripts = new StringBuilder();
 
@@ -300,7 +300,7 @@ namespace DotNet.Highcharts
 
         #endregion
 
-        public string GetOptions()
+        public virtual string GetOptions()
         {
             StringBuilder options = new StringBuilder();
             options.Append(_Chart != null ? "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_Chart, false)) : "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
