@@ -1928,10 +1928,9 @@ namespace DotNet.Highcharts.Samples.Controllers
                     ValueDecimals = 2,
                 })
                 .SetSeries(new[]
-                           {
-                               new Series { Name = "AAPL" },
-                           }
-                );
+                {
+                    new Series { Name = "AAPL" },
+                });
 
             return View(chart);
         }
