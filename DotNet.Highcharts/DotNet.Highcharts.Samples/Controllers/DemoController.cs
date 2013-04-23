@@ -1935,5 +1935,48 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockCandlestickVolume()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    ClassName = "chart",
+                    AlignTicks = false
+                })
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Historical",
+                })
+                .SetYAxis(new []{ new YAxis
+                {
+                    Title = new YAxisTitle { Text = "OHLC" },
+                    LineWidth = 2,
+
+                }, new YAxis
+                {
+                    Title = new YAxisTitle { Text = "Volume" },
+                    Offset = 0,
+                    LineWidth = 2,
+                    //height, top... ?
+                }})
+                .SetSeries(new[]
+                {
+                    new Series 
+                    { 
+                        Name = "AAPL",
+                        Type = ChartTypes.Candlestick,
+                        // data grouping?
+                    },
+                    new Series
+                    {
+                        Name="Volume",
+                        Type = ChartTypes.Column,
+                        YAxis = 1
+                    }
+                });
+
+            return View(chart);
+        }
+
     }
 }
