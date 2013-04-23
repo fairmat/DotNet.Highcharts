@@ -15,9 +15,12 @@
         Bar,
         Pie,
         Scatter,
+        Gauge,
         Arearange,
         Areasplinerange,
-        Columnrange
+        Columnrange,
+        Candlestick,
+        OHLC
     }
 
     #endregion
