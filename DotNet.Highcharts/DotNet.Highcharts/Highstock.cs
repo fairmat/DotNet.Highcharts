@@ -12,6 +12,7 @@ namespace DotNet.Highcharts
 
         RangeSelector _RangeSelector;
         Navigator _Navigator;
+        Scrollbar _Scrollbar;
 
         /// <summary>
         /// The chart object is the JavaScript object representing a single chart in the web page.
@@ -249,6 +250,21 @@ namespace DotNet.Highcharts
         }
 
         /// <summary>
+        /// The scrollbar is a means of panning over the X axis of a chart.
+        /// This object contains all the options which can be applied to this part of the chart.
+        /// </summary>
+        /// <remarks>This is available only with Highstock.</remarks>
+        /// <param name="scrollbar">
+        /// A reference to a <see cref="Scrollbar"/> object containing the selected options.
+        /// </param>
+        /// <returns>A reference to this class, useful for chained settings.</returns>
+        public HighStock SetScrollbar(Scrollbar scrollbar)
+        {
+            _Scrollbar = scrollbar;
+            return this;
+        }
+
+        /// <summary>
         /// Add the javascript variable to the same jQuery document ready where chart is initialized.
         /// Variables are added before the chart.
         /// </summary>
@@ -308,17 +324,23 @@ namespace DotNet.Highcharts
         {
             StringBuilder options = new StringBuilder();
             options.Append(base.GetOptions());
-            
+
+            if (_Navigator != null)
+            {
+                options.AppendLine(", ");
+                options.Append("navigator: {0}".FormatWith(JsonSerializer.Serialize(_Navigator)), 2);
+            }
+
             if (_RangeSelector!= null)
             {
                 options.AppendLine(", ");
                 options.Append("rangeSelector: {0}".FormatWith(JsonSerializer.Serialize(_RangeSelector)), 2);
             }
 
-            if (_Navigator != null)
+            if (_Scrollbar != null)
             {
                 options.AppendLine(", ");
-                options.Append("navigator: {0}".FormatWith(JsonSerializer.Serialize(_Navigator)), 2);
+                options.Append("scrollbar: {0}".FormatWith(JsonSerializer.Serialize(_Scrollbar)), 2);
             }
 
             options.AppendLine();
