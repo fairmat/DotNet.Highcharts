@@ -269,6 +269,7 @@
     <Content Include="Views\HoTos\PlotBandEvents.cshtml" />
     <Content Include="Views\Demo\HighstockBasicLine.cshtml" />
     <Content Include="Views\Demo\HighstockCandlestickVolume.cshtml" />
+    <Content Include="Views\Demo\HighstockCompare.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">
