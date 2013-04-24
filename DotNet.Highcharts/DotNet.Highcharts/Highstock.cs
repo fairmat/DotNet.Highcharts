@@ -243,7 +243,7 @@ namespace DotNet.Highcharts
         /// A reference to a <see cref="Navigator"/> object containing the selected options.
         /// </param>
         /// <returns>A reference to this class, useful for chained settings.</returns>
-        public Highstock SetRangeSelector(Navigator navigator)
+        public Highstock SetNavigator(Navigator navigator)
         {
             _Navigator = navigator;
             return this;
