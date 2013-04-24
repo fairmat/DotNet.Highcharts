@@ -26,8 +26,13 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public Number? GridLineWidth { get; set; }
 
+        /// <summary>
+        /// The height of the Y axis in pixels. Defaults to null.
+        /// </summary>
+        public Number? Height { get; set; }
+
 		/// <summary>
-		/// The width of the line marking the axis itself. Defaults to 0
+		/// The width of the line marking the axis itself. Defaults to 0.
 		/// </summary>
 		public Number? LineWidth { get; set; }
 
@@ -44,6 +49,14 @@ namespace DotNet.Highcharts.Options
 		/// value to appear on the edge of the plot area. Defaults to 0.05
 		/// </summary>
 		public Number? MinPadding { get; set; }
+
+        /// <summary>
+        /// The distance in pixels from the plot area to the axis line. A positive offset 
+        /// moves the axis with it's line, labels and ticks away from the plot area.
+        /// This is typically used when two or more axes are displayed on the same side of the plot.
+        /// Defaults to 0.
+        /// </summary>
+        public Number? Offset { get; set; }
 
 		/// <summary>
 		/// Whether to show the last tick label. Defaults to true
@@ -67,6 +80,10 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public Number? TickWidth { get; set; }
 
+        /// <summary>
+        /// The top pixel position of the Y axis relative to the chart. Defaults to null.
+        /// </summary>
+        public Number? Top { get; set; }
 	}
 
 }
