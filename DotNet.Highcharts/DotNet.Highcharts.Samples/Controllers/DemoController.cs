@@ -1951,13 +1951,14 @@ namespace DotNet.Highcharts.Samples.Controllers
                 {
                     Title = new YAxisTitle { Text = "OHLC" },
                     LineWidth = 2,
-
+                    Height = 200,
                 }, new YAxis
                 {
                     Title = new YAxisTitle { Text = "Volume" },
                     Offset = 0,
                     LineWidth = 2,
-                    //height, top... ?
+                    Height = 100,
+                    Top = 300,
                 }})
                 .SetSeries(new[]
                 {
