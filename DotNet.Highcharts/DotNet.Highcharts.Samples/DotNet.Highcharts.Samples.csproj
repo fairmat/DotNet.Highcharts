@@ -273,6 +273,7 @@
     <Content Include="Views\Demo\HighstockNavigatorDisabled.cshtml" />
     <Content Include="Views\Demo\HighstockScrollbarDisabled.cshtml" />
     <Content Include="Views\Demo\HighstockStyledScrollbar.cshtml" />
+    <Content Include="Views\Demo\HighstockYAxisReversed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">

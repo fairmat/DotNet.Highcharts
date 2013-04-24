@@ -2048,6 +2048,52 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockYAxisReversed()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Area,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetYAxis(new YAxis
+                {
+                    Reversed = true,
+                    ShowFirstLabel = false,
+                    ShowLastLabel = true
+                })
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Area = new PlotOptionsArea
+                           {
+                               FillColor = new Gradient 
+                                           {
+                                               LinearGradient = new[] { 0, 300, 0, 0 },
+                                               Stops = new object[,] { { 0, Color.Blue }, { 1, Color.White } }
+                                           }
+                           }
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "AAPL Stock Price" },
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockCandlestickVolume()
         {
             Highstock chart = new Highstock("chart")
