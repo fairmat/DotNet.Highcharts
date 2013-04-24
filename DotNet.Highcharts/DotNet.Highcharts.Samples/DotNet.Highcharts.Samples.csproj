@@ -272,6 +272,7 @@
     <Content Include="Views\Demo\HighstockCompare.cshtml" />
     <Content Include="Views\Demo\HighstockNavigatorDisabled.cshtml" />
     <Content Include="Views\Demo\HighstockScrollbarDisabled.cshtml" />
+    <Content Include="Views\Demo\HighstockStyledScrollbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">

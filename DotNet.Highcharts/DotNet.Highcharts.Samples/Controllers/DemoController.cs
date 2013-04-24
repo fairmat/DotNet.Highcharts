@@ -2006,6 +2006,48 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockStyledScrollbar()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Line,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetScrollbar(new Scrollbar
+                {
+                    BarBackgroundColor = Color.Gray,
+                    BarBorderRadius = 7,
+                    BarBorderWidth = 0,
+                    ButtonBackgroundColor = Color.Gray,
+                    ButtonBorderWidth = 0,
+                    ButtonBorderRadius = 7,
+                    TrackBackgroundColor = Color.Transparent,
+                    TrackBorderWidth = 1,
+                    TrackBorderRadius = 8,
+                    TrackBorderColor = Color.Gray,
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "AAPL" },
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockCandlestickVolume()
         {
             Highstock chart = new Highstock("chart")
