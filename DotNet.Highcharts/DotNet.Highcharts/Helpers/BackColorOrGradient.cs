@@ -12,6 +12,10 @@ namespace DotNet.Highcharts.Helpers
 
         public BackColorOrGradient(Gradient gradient) { Gradient = gradient; }
 
+        public static implicit operator BackColorOrGradient(Color value) { return new BackColorOrGradient(value); }
+
+        public static implicit operator BackColorOrGradient(Gradient value) { return new BackColorOrGradient(value); }
+
         [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
         public Color? Color { get; private set; }
 
