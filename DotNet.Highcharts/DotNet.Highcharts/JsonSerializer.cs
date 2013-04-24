@@ -191,8 +191,15 @@ namespace DotNet.Highcharts
         {
             JsonFormatter formatter = new JsonFormatter { JsonValueFormat = string.Empty, AddPropertyName = true, UseCurlyBracketsForObject = true };
             if (property != null)
+            {
+                // First try getting defaults for the class, if any.
+                foreach (JsonFormatterAttribute attribute in property.PropertyType.GetCustomAttributes(typeof(JsonFormatterAttribute), true))
+                    formatter = attribute.JsonFormatter;
+
+                // Then get overrides for the specific entry.
                 foreach (JsonFormatterAttribute attribute in property.GetCustomAttributes(typeof(JsonFormatterAttribute), true))
                     formatter = attribute.JsonFormatter;
+            }
 
             return formatter;
         }

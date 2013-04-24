@@ -9,7 +9,7 @@ namespace DotNet.Highcharts.Attributes
     /// Example: {0}: '{1}'
     /// </example>
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class, AllowMultiple = false)]
     public class JsonFormatterAttribute : Attribute
     {
         public JsonFormatterAttribute(string jsonValueFormat = "", bool addPropertyName = true, bool useCurlyBracketsForObject = true) { JsonFormatter = new JsonFormatter { JsonValueFormat = jsonValueFormat, AddPropertyName = addPropertyName, UseCurlyBracketsForObject = useCurlyBracketsForObject }; }
