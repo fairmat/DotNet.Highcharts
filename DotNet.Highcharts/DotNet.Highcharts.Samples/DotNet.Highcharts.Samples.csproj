@@ -270,6 +270,8 @@
     <Content Include="Views\Demo\HighstockBasicLine.cshtml" />
     <Content Include="Views\Demo\HighstockCandlestickVolume.cshtml" />
     <Content Include="Views\Demo\HighstockCompare.cshtml" />
+    <Content Include="Views\Demo\HighstockNavigatorDisabled.cshtml" />
+    <Content Include="Views\Demo\HighstockScrollbarDisabled.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">
