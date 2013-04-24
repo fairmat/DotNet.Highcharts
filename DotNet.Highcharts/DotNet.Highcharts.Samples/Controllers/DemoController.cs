@@ -1979,5 +1979,40 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockCompare()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    ClassName = "chart",
+                })
+                .SetYAxis(new YAxis
+                {
+                        //labels, plotlines?
+                })
+                //plot options => series => compare?
+                .SetTooltip(new Tooltip
+                {
+                        PointFormat = "<span style=\"color:{series.color}\">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>",
+                        ValueDecimals = 2,
+                })
+                .SetSeries(new[]
+                {
+                    new Series 
+                    { 
+                        Name = "MSFT",
+                    },
+                    new Series
+                    {
+                        Name="AAPL",
+                    },
+                    new Series
+                    {
+                        Name="GOOG",
+                    }
+                });
+
+            return View(chart);
+        }
     }
 }
