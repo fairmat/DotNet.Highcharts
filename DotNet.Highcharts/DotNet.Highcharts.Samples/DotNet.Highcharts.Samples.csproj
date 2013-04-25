@@ -285,6 +285,7 @@
     <Content Include="Views\Demo\HighstockAreaSplineRange.cshtml" />
     <Content Include="Views\Demo\HighstockColumnRange.cshtml" />
     <Content Include="Views\Demo\HighstockMarkersOnly.cshtml" />
+    <Content Include="Views\Demo\HighstockColumn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">
