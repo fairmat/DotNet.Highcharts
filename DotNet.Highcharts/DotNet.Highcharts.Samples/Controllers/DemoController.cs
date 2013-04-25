@@ -2190,6 +2190,36 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockOHLC()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Ohlc,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 2,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "AAPL Stock Price" },
+                    // Lacks datagrouping
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockColumn()
         {
             Highstock chart = new Highstock("chart")
@@ -2214,7 +2244,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                 })
                 .SetSeries(new[]
                 {
-                    new Series { Name = "AAPL Stock Volumr" },
+                    new Series { Name = "AAPL Stock Volume" },
                     // Lacks datagrouping
                 });
 
