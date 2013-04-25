@@ -20,7 +20,7 @@ namespace DotNet.Highcharts.Options
 		/// The dashing or dot style for the plot line. For possible values see 
 		/// this overview. Defaults to Solid
 		/// </summary>
-		public string DashStyle { get; set; }
+		public DashStyles? DashStyle { get; set; }
 
 		/// <summary>
 		/// An object defining mouse events for the plot line. Supported properties are click,
