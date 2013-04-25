@@ -2190,6 +2190,35 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockColumnRange()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Columnrange,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 2,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "Temperature variation by day",
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueSuffix = "°C"
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "Temperatures" },
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockScrollbarDisabled()
         {
             Highstock chart = new Highstock("chart")
