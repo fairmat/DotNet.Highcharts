@@ -1,0 +1,15 @@
+﻿@model DotNet.Highcharts.Highstock
+@{
+    ViewBag.Title = "Highstock Plot lines on Y axis";
+}
+@(Model)
+
+<script type="text/javascript">
+    $(function ()
+    {
+        $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data)
+        {
+            chart.series[0].setData(data);
+        })
+    });
+</script>
