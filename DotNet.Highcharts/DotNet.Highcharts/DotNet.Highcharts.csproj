@@ -98,6 +98,7 @@
     <Compile Include="Options\ChartEvents.cs" />
     <Compile Include="Options\ChartResetZoomButton.cs" />
     <Compile Include="Options\Colors.cs" />
+    <Compile Include="Options\YAxisPlotLinesLabels.cs" />
     <Compile Include="Options\Scrollbar.cs" />
     <Compile Include="Options\Navigator.cs" />
     <Compile Include="Options\RangeSelector.cs" />
