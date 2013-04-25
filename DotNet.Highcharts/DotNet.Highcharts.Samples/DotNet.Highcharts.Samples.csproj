@@ -275,6 +275,7 @@
     <Content Include="Views\Demo\HighstockStyledScrollbar.cshtml" />
     <Content Include="Views\Demo\HighstockYAxisReversed.cshtml" />
     <Content Include="Views\Demo\HighstockYAxisPlotLines.cshtml" />
+    <Content Include="Views\Demo\HighstockYAxisPlotBands.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">

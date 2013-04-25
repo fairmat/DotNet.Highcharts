@@ -2076,7 +2076,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                             Color = Color.Green,
                             DashStyle = DashStyles.ShortDash,
                             Width = 2,
-                            Label = new YAxisPlotLinesLabel { Text="Last quarter minimum" }
+                            Label = new YAxisPlotLinesLabel { Text = "Last quarter minimum" }
                         },
                         new YAxisPlotLines
                         {
@@ -2084,9 +2084,49 @@ namespace DotNet.Highcharts.Samples.Controllers
                             Color = Color.Red,
                             DashStyle = DashStyles.ShortDash,
                             Width = 2,
-                            Label = new YAxisPlotLinesLabel { Text ="Last quarter maximum" }
+                            Label = new YAxisPlotLinesLabel { Text = "Last quarter maximum" }
                         }
                     }
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 4,
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "USD to EUR" },
+                });
+
+            return View(chart);
+        }
+
+        public ActionResult HighstockYAxisPlotBands()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Line,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "USD to EUR exchange rate",
+                })
+                .SetYAxis(new YAxis
+                {
+                    Title = new YAxisTitle { Text = "Exchange rate" },
+                    PlotBands = new[] { new YAxisPlotBands
+                    {
+                        From = 0.6738,
+                        To = 0.7419,
+                        Color = Color.FromArgb(51,68,170,213),
+                        Label = new YAxisPlotBandsLabel { Text = "Last quarter\\'s value range" }
+                    }}
                 })
                 .SetTooltip(new Tooltip
                 {
