@@ -1940,6 +1940,48 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockDynamicUpdate()
+        {
+            List<object> points = new List<object>(1000);
+            DateTime now = DateTime.Now;
+            Random rand = new Random();
+            for (int i = -999; i <= 0; i++)
+                points.Add(new { X = now.AddSeconds(i), Y = rand.NextDouble() });
+
+            Highstock chart = new Highstock("chart")
+                .SetOptions(new GlobalOptions { Global = new Global { UseUTC = false } })
+                .InitChart(new Chart
+                {
+                    Events = new ChartEvents
+                    {
+                        Load = "ChartEventsLoad"
+                    }
+                })
+                .AddJavascripFunction("ChartEventsLoad",
+                                      @"// set up the updating of the chart each second
+                                       var series = this.series[0];
+                                       setInterval(function() {
+                                          var x = (new Date()).getTime(), // current time
+                                             y = Math.round(Math.random()*100);
+                                          series.addPoint([x, y], true, true);
+                                       }, 1000);")
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    // buttons?
+                    InputEnabled = false,
+                    Selected = 0,
+                })*/
+                .SetTitle(new Title { Text = "Live random data" })
+                .SetExporting(new Exporting { Enabled = false })
+                .SetSeries(new Series
+                {
+                    Name = "Random data",
+                    Data = new Data(points.ToArray())
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockLineMarkers()
         {
             Highstock chart = new Highstock("chart")
