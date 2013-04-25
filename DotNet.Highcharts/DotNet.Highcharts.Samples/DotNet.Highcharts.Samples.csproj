@@ -279,6 +279,7 @@
     <Content Include="Views\Demo\HighstockLineMarkers.cshtml" />
     <Content Include="Views\Demo\HighstockSpline.cshtml" />
     <Content Include="Views\Demo\HighstockStepLine.cshtml" />
+    <Content Include="Views\Demo\HighstockArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">

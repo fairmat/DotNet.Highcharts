@@ -1986,7 +1986,6 @@ namespace DotNet.Highcharts.Samples.Controllers
             Highstock chart = new Highstock("chart")
                 .InitChart(new Chart
                 {
-                    DefaultSeriesType = ChartTypes.Line,
                     ClassName = "chart"
                 })
                 // range selector seems to have problems in highstock.
@@ -2042,6 +2041,49 @@ namespace DotNet.Highcharts.Samples.Controllers
                 .SetSeries(new[]
                 {
                     new Series { Name = "AAPL" },
+                });
+
+            return View(chart);
+        }
+
+        public ActionResult HighstockArea()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Area = new PlotOptionsArea
+                    {
+                        FillColor = new Gradient
+                        {
+                            LinearGradient = new[] { 0, 0, 0, 200 },
+                            Stops = new object[,] { { 0, Color.LightBlue }, { 1, Color.Transparent } }
+                        }
+                    }
+                })
+                .SetSeries(new[]
+                {
+                    new Series 
+                    {
+                        Name = "AAPL",
+                        Type = ChartTypes.Area,
+                    },
                 });
 
             return View(chart);
