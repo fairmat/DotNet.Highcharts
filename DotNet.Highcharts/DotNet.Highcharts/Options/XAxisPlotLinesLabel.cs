@@ -32,6 +32,11 @@ namespace DotNet.Highcharts.Options
 		[JsonFormatter("{{ {0} }}")]
 		public string Style { get; set; }
 
+        /// <summary>
+        /// The string text itself. A subset of HTML is supported.
+        /// </summary>
+        public string Text { get; set; }
+
 		/// <summary>
 		/// The text alignment for the label. While align determines
 		/// where the texts anchor point is placed within the plot band, textAlign determines
