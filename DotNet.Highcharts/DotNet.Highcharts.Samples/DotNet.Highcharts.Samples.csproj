@@ -282,6 +282,7 @@
     <Content Include="Views\Demo\HighstockArea.cshtml" />
     <Content Include="Views\Demo\HighstockAreaSpline.cshtml" />
     <Content Include="Views\Demo\HighstockAreaRange.cshtml" />
+    <Content Include="Views\Demo\HighstockAreaSplineRange.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">

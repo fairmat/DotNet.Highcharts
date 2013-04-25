@@ -1,13 +1,13 @@
 ﻿@model DotNet.Highcharts.Highstock
 @{
-    ViewBag.Title = "Highstock Spline Range";
+    ViewBag.Title = "Highstock Area Range Spline";
 }
 @(Model)
 
 <script type="text/javascript">
     $(function ()
     {
-        $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data)
+        $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=range.json&callback=?', function (data)
         {
             chart.series[0].setData(data);
         })
