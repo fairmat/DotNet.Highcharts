@@ -2014,6 +2014,39 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockStepLine()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Line,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Line = new PlotOptionsLine { Step = true }
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "AAPL" },
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockScrollbarDisabled()
         {
             Highstock chart = new Highstock("chart")
