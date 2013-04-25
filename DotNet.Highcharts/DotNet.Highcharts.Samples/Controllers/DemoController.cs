@@ -1981,6 +1981,39 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockSpline()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Line,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetSeries(new[]
+                {
+                    new Series 
+                    {
+                        Name = "AAPL",
+                        Type = ChartTypes.Spline
+                    },
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockScrollbarDisabled()
         {
             Highstock chart = new Highstock("chart")
