@@ -1940,6 +1940,47 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockLineMarkers()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Line,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Series = new PlotOptionsSeries
+                            {
+                                Marker = new PlotOptionsSeriesMarker
+                                         {
+                                             Enabled = true,
+                                             Radius = 3
+                                         },
+                                Shadow = true
+                            }
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "AAPL" }
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockScrollbarDisabled()
         {
             Highstock chart = new Highstock("chart")
