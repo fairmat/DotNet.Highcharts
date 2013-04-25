@@ -2190,6 +2190,36 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult HighstockCandlestick()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Candlestick,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "AAPL Stock Price",
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 2,
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "AAPL Stock Price" },
+                    // Lacks datagrouping
+                });
+
+            return View(chart);
+        }
+
         public ActionResult HighstockOHLC()
         {
             Highstock chart = new Highstock("chart")
