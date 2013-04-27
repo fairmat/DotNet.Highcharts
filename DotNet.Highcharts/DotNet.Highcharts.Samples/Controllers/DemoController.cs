@@ -2297,6 +2297,20 @@ namespace DotNet.Highcharts.Samples.Controllers
                 {
                     ValueDecimals = 2,
                 })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Series = new PlotOptionsSeries
+                    {
+                        DataGrouping = new DataGrouping
+                        {
+                            Units = new object[] 
+                            { 
+                                new object[]{"week", new[] {1}},
+                                new object[]{"month", new[] {1,2,3,4,5,6}}
+                            }
+                        }
+                    }
+                })
                 .SetSeries(new[]
                 {
                     new Series { Name = "AAPL Stock Price" },
@@ -2327,6 +2341,20 @@ namespace DotNet.Highcharts.Samples.Controllers
                 .SetTooltip(new Tooltip
                 {
                     ValueDecimals = 2,
+                })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Series = new PlotOptionsSeries
+                    {
+                        DataGrouping = new DataGrouping
+                        {
+                            Units = new object[] 
+                            { 
+                                new object[]{"week", new[] {1}},
+                                new object[]{"month", new[] {1,2,3,4,5,6}}
+                            }
+                        }
+                    }
                 })
                 .SetSeries(new[]
                 {
@@ -2675,13 +2703,26 @@ namespace DotNet.Highcharts.Samples.Controllers
                     Height = 100,
                     Top = 300,
                 }})
+                .SetPlotOptions(new PlotOptions
+                {
+                    Series = new PlotOptionsSeries
+                    {
+                        DataGrouping = new DataGrouping
+                        {
+                            Units = new object[] 
+                            { 
+                                new object[]{"week", new[] {1}},
+                                new object[]{"month", new[] {1,2,3,4,5,6}}
+                            }
+                        }
+                    }
+                })
                 .SetSeries(new[]
                 {
                     new Series 
                     { 
                         Name = "AAPL",
                         Type = ChartTypes.Candlestick,
-                        // data grouping?
                     },
                     new Series
                     {
