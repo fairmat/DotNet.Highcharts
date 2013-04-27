@@ -83,6 +83,11 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public DashStyles? DashStyle { get; set; }
 
+        /// <summary>
+        /// Options regarding the grouping of data for the plotting.
+        /// </summary>
+        public DataGrouping DataGrouping { get; set; }
+
 		/// <summary>
 		/// Defines the appearance of the data labels, static labels for each point.
 		/// </summary>
