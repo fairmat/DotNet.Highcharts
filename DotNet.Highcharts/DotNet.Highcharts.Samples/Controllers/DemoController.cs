@@ -2253,6 +2253,20 @@ namespace DotNet.Highcharts.Samples.Controllers
                 {
                     ValueDecimals = 2,
                 })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Series = new PlotOptionsSeries
+                    {
+                        DataGrouping = new DataGrouping
+                        {
+                            Units = new object[] 
+                            { 
+                                new object[]{"week", new[] {1}},
+                                new object[]{"month", new[] {1,2,3,4,5,6}}
+                            }
+                        }
+                    }
+                })
                 .SetSeries(new[]
                 {
                     new Series { Name = "AAPL Stock Price" },
