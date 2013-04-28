@@ -23,10 +23,20 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public PlotOptionsArea Area { get; set; }
 
+        /// <summary>
+        /// Arearange plot options.
+        /// </summary>
+        public PlotOptionsArearange Arearange { get; set; }
+
 		/// <summary>
 		/// Areaspline plot options
 		/// </summary>
 		public PlotOptionsAreaspline Areaspline { get; set; }
+
+        /// <summary>
+        /// Areasplinerange plot options.
+        /// </summary>
+        public PlotOptionsAreasplinerange Areasplinerange { get; set; }
 
 		/// <summary>
 		/// Bar chart options
@@ -37,6 +47,11 @@ namespace DotNet.Highcharts.Options
 		/// Column chart options
 		/// </summary>
 		public PlotOptionsColumn Column { get; set; }
+
+        /// <summary>
+        /// Columnrange plot options.
+        /// </summary>
+        public PlotOptionsColumnrange Columnrange { get; set; }
 
 		/// <summary>
 		/// Line chart options
@@ -62,6 +77,16 @@ namespace DotNet.Highcharts.Options
 		/// Spline chart options
 		/// </summary>
 		public PlotOptionsSpline Spline { get; set; }
+
+        /// <summary>
+        /// OHLC chart options.
+        /// </summary>
+        public PlotOptionsOhlc Ohlc { get; set; }
+
+        /// <summary>
+        /// Candlestick chart options.
+        /// </summary>
+        public PlotOptionsCandlestick Candlestick { get; set; }
 
 	}
 
