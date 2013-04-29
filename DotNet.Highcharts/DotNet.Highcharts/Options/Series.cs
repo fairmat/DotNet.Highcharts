@@ -53,6 +53,11 @@ namespace DotNet.Highcharts.Options
 		[Obsolete("This method is deprecated as of version 2.0. Instead, load the data using jQuery.ajax and use options preprocessing as described in the  how-to, section #3.")]
 		public string DataURL { get; set; }
 
+        /// <summary>
+        /// Sets a reference to this series for other parts of the chart.
+        /// </summary>
+        public string Id { get; set; }
+
 		/// <summary>
 		/// The sequential index of the series in the legend.
 		/// 
