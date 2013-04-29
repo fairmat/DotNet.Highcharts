@@ -20,7 +20,8 @@
         Areasplinerange,
         Columnrange,
         Candlestick,
-        Ohlc
+        Ohlc,
+        Flags
     }
 
     #endregion
