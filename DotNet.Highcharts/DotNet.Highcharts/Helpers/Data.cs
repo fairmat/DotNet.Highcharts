@@ -12,6 +12,8 @@ namespace DotNet.Highcharts.Helpers
 
         public Data(Point[] data) { SeriesData = data; }
 
+        public Data(Flag[] data) { FlagData = data; }
+
         [Name("data")]
         public object[] ArrayData { get; private set; }
 
