@@ -98,6 +98,7 @@
     <Compile Include="Options\ChartEvents.cs" />
     <Compile Include="Options\ChartResetZoomButton.cs" />
     <Compile Include="Options\Colors.cs" />
+    <Compile Include="Options\PlotOptionsFlags.cs" />
     <Compile Include="Options\PlotOptionsColumnrange.cs" />
     <Compile Include="Options\PlotOptionsAreasplinerange.cs" />
     <Compile Include="Options\PlotOptionsArearange.cs" />
