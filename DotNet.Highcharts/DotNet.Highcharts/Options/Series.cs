@@ -53,11 +53,6 @@ namespace DotNet.Highcharts.Options
 		[Obsolete("This method is deprecated as of version 2.0. Instead, load the data using jQuery.ajax and use options preprocessing as described in the  how-to, section #3.")]
 		public string DataURL { get; set; }
 
-        /// <summary>
-        /// Sets a reference to this series for other parts of the chart.
-        /// </summary>
-        public string Id { get; set; }
-
 		/// <summary>
 		/// The sequential index of the series in the legend.
 		/// 
@@ -126,6 +121,27 @@ namespace DotNet.Highcharts.Options
 
 		[JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
 		public PlotOptionsScatter PlotOptionsScatter { get; set; }
+
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+        public PlotOptionsArearange PlotOptionsArearange { get; set; }
+
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+        public PlotOptionsAreasplinerange PlotOptionsAreasplinerange { get; set; }
+
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+        public PlotOptionsColumnrange PlotOptionsColumnrange { get; set; }
+
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+        public PlotOptionsGauge PlotOptionsGauge { get; set; }
+
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+        public PlotOptionsCandlestick PlotOptionsCandlestick { get; set; }
+
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+        public PlotOptionsOhlc PlotOptionsOhlc { get; set; }
+
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+        public PlotOptionsFlags PlotOptionsFlags { get; set; }
 	}
 
 }
