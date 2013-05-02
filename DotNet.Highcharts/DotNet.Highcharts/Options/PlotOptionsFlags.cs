@@ -21,5 +21,12 @@ namespace DotNet.Highcharts.Options
         /// Defaults to undefined.
         /// </summary>
         public string OnSeries { get; set; }
+
+        /// <summary>
+        /// The shape of the marker. Can be one of "flag", "circlepin",
+        /// "squarepin", or an image on the format url(/path-to-image.jpg).
+        /// Individual shapes can also be set for each point. Defaults to flag.
+        /// </summary>
+        public string Shape { get; set; }
 	}
 }
