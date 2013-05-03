@@ -221,6 +221,7 @@
     <Compile Include="Options\PlotOptionsSplineStatesHover.cs" />
     <Compile Include="Options\PlotOptionsSplineStatesHoverMarker.cs" />
     <Compile Include="Options\Point.cs" />
+    <Compile Include="Options\Flag.cs" />
     <Compile Include="Options\PointEvents.cs" />
     <Compile Include="Options\PointMarker.cs" />
     <Compile Include="Options\Series.cs" />
