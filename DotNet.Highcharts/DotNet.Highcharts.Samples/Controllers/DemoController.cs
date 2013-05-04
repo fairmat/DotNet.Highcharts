@@ -2768,5 +2768,56 @@ namespace DotNet.Highcharts.Samples.Controllers
 
             return View(chart);
         }
+
+        public ActionResult HighstockFlagsPlacement()
+        {
+            Highstock chart = new Highstock("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Line,
+                    ClassName = "chart"
+                })
+                // range selector seems to have problems in highstock.
+                /*.SetRangeSelector(new RangeSelector
+                {
+                    Selected = 1,
+                })*/
+                .SetTitle(new Title
+                {
+                    Text = "USD to EUR exchange rate",
+                })
+                .SetYAxis(new YAxis
+                {
+                    Title = new YAxisTitle { Text = "Exchange rate" },
+                })
+                .SetTooltip(new Tooltip
+                {
+                    ValueDecimals = 4,
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "USD to EUR", PlotOptionsFlags = new PlotOptionsFlags { Id = "dataseries"} },
+                    new Series
+                    { 
+                        Type = ChartTypes.Flags, 
+                        Name = "Flags on series",
+                        PlotOptionsFlags = new PlotOptionsFlags { OnSeries = "dataseries"},
+                        Data = new Data(new Flag[] 
+                                        { 
+                                            new Flag
+                                            {
+                                                X = new DateTime(2011,1,14).Ticks,
+                                                Title = "On series",
+                                            },
+                                            new Flag
+                                            {
+                                                X =  new DateTime(2011,3,28).Ticks,
+                                                Title = "On series",
+                                            }
+                                        }),
+                    }});
+
+            return View(chart);
+        }
     }
 }

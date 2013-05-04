@@ -289,6 +289,7 @@
     <Content Include="Views\Demo\HighstockOHLC.cshtml" />
     <Content Include="Views\Demo\HighstockCandlestick.cshtml" />
     <Content Include="Views\Demo\HighstockDynamicUpdate.cshtml" />
+    <Content Include="Views\Demo\HighstockFlagsPlacement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">
