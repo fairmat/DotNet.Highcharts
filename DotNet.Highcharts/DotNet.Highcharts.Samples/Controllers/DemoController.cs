@@ -2815,6 +2815,25 @@ namespace DotNet.Highcharts.Samples.Controllers
                                                 Title = "On series",
                                             }
                                         }),
+                    },
+                    new Series
+                    { 
+                        Type = ChartTypes.Flags, 
+                        Name = "Flags on axis",
+                        PlotOptionsFlags = new PlotOptionsFlags { OnSeries = "dataseries"},
+                        Data = new Data(new Flag[] 
+                                        { 
+                                            new Flag
+                                            {
+                                                X = new DateTime(2011,2,1).Ticks,
+                                                Title = "On axis",
+                                            },
+                                            new Flag
+                                            {
+                                                X =  new DateTime(2011,3,1).Ticks,
+                                                Title = "On axis",
+                                            }
+                                        }),
                     }});
 
             return View(chart);
