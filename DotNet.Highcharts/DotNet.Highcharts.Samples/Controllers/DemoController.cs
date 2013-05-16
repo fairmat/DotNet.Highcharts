@@ -2615,7 +2615,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                         From = 0.6738,
                         To = 0.7419,
                         Color = Color.FromArgb(51,68,170,213),
-                        Label = new YAxisPlotBandsLabel { Text = "Last quarter\\'s value range" }
+                        Label = new YAxisPlotBandsLabel { Text = "Last quarter's value range" }
                     }}
                 })
                 .SetTooltip(new Tooltip

@@ -171,7 +171,19 @@ namespace DotNet.Highcharts
             return string.Format("rgba({0}, {1}, {2}, {3})", color.R, color.G, color.B, htmlAlpha.ToString("#.#", CultureInfo.InvariantCulture));
         }
 
-        static string GetJsonString(string format, string defaultFormat, string value) { return string.Format(!string.IsNullOrEmpty(format) ? format : defaultFormat, value); }
+        static string GetJsonString(string format, string defaultFormat, string value) 
+        {
+            string usedFormat = (!string.IsNullOrEmpty(format)) ? format : defaultFormat;
+
+            // Check if the format includes quotes, so needing to escape the string.
+            if (usedFormat.Contains("'{0}'"))
+            {
+                // In this case escape the quotes in the string.
+                value = value.Replace("'", "\\'");
+            }
+
+            return string.Format(usedFormat, value);
+        }
 
         static string GetPropertyName(PropertyInfo property)
         {
