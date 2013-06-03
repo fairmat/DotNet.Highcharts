@@ -6,6 +6,8 @@
     public enum AxisTypes
     {
         Linear,
-        Datetime
+        Logarithmic,
+        Datetime,
+        Category
     }
 }

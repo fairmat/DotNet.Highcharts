@@ -9,42 +9,39 @@ namespace DotNet.Highcharts.Options
 	public class PlotOptionsSeriesMarker
 	{
 		/// <summary>
-		/// Enable or disable the point marker. Defaults to true
+		/// Enable or disable the point marker.
+		/// Default: true
 		/// </summary>
 		public bool? Enabled { get; set; }
 
 		/// <summary>
-		/// The fill color of the point marker. When null, the series' or point's color
-		/// is used. Defaults to null
+		/// The fill color of the point marker. When <code>null</code>, the series' or point's color is used.
 		/// </summary>
-		public Color? FillColor { get; set; }
+		[JsonFormatter(addPropertyName: true, useCurlyBracketsForObject: false)]
+		public BackColorOrGradient FillColor { get; set; }
 
 		/// <summary>
-		/// The color of the point marker's outline. When null, the series' or point's color
-		/// is used. Defaults to "#FFFFFF"
+		/// The color of the point marker's outline. When <code>null</code>, the series' or point's color is used.
+		/// Default: #FFFFFF
 		/// </summary>
 		public Color? LineColor { get; set; }
 
 		/// <summary>
-		/// The width of the point marker's outline. Defaults to 0
+		/// The width of the point marker's outline.
+		/// Default: 0
 		/// </summary>
 		public Number? LineWidth { get; set; }
 
 		/// <summary>
-		/// The radius of the point marker. Defaults to 0
+		/// The radius of the point marker.
+		/// Default: 0
 		/// </summary>
 		public Number? Radius { get; set; }
 
-		/// <summary>
-		/// Interaction states for the point marker.
-		/// </summary>
 		public PlotOptionsSeriesMarkerStates States { get; set; }
 
 		/// <summary>
-		/// A predefined shape or symbol for the marker. When null, the symbol is pulled from
-		/// options.symbols. Other possible values are "circle", "square", "diamond", "triangle"
-		/// and "triangle-down". Additionally, the URL to a graphic can be given on this form: 
-		/// "url(graphic.png)". Defaults to null
+		/// A predefined shape or symbol for the marker. When null, the symbol is pulled from options.symbols. Other possible values are 'circle', 'square', 'diamond', 'triangle' and 'triangle-down'. Additionally, the URL to a graphic can be given on this form:  'url(graphic.png)'.
 		/// </summary>
 		public string Symbol { get; set; }
 

@@ -6,8 +6,16 @@ using DotNet.Highcharts.Helpers;
 
 namespace DotNet.Highcharts.Options
 {
-	public class PlotOptionsAreasplinePoint : PlotOptionsAreaPoint
+	/// <summary>
+	/// Properties for each single point
+	/// </summary>
+	public class PlotOptionsAreasplinePoint
 	{
+		/// <summary>
+		/// Events for each single point
+		/// </summary>
+		public PlotOptionsAreasplinePointEvents Events { get; set; }
+
 	}
 
 }

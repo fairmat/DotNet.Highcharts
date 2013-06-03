@@ -27,6 +27,8 @@ namespace DotNet.Highcharts
         Legend _Legend;
         Loading _Loading;
         PlotOptions _PlotOptions;
+        Pane _Pane;
+        Pane[] _PaneArray;
         Series _Series;
         Series[] _SeriesArray;
         Subtitle _Subtitle;
@@ -38,7 +40,6 @@ namespace DotNet.Highcharts
         YAxis[] _YAxisArray;
         Exporting _Exporting;
         Navigation _Navigation;
-
 
         /// <summary>
         /// The chart object is the JavaScript object representing a single chart in the web page.
@@ -137,6 +138,23 @@ namespace DotNet.Highcharts
         public Highcharts SetPlotOptions(PlotOptions plotOptions)
         {
             _PlotOptions = plotOptions;
+            return this;
+        }
+
+        /// <summary>
+        /// Applies only to polar charts and angular gauges. This configuration object holds general options for the combined X and Y axes set. Each xAxis or yAxis can reference the pane by index.
+        /// </summary>
+        /// <param name="pane"></param>
+        /// <returns></returns>
+        public Highcharts SetPane(Pane[] paneArray)
+        {
+            _PaneArray = paneArray;
+            return this;
+        }
+
+        public Highcharts SetPane(Pane pane)
+        {
+            _Pane = pane;
             return this;
         }
 
@@ -347,6 +365,18 @@ namespace DotNet.Highcharts
             {
                 options.AppendLine(", ");
                 options.Append("plotOptions: {0}".FormatWith(JsonSerializer.Serialize(_PlotOptions)), 2);
+            }
+
+            if (_Pane != null)
+            {
+                options.AppendLine(", ");
+                options.Append("pane: {0}".FormatWith(JsonSerializer.Serialize(_Pane)), 2);
+            }
+
+            if (_PaneArray != null)
+            {
+                options.AppendLine(", ");
+                options.Append("pene: {0}".FormatWith(JsonSerializer.Serialize(_PaneArray)), 2);
             }
 
             if (_Subtitle != null)

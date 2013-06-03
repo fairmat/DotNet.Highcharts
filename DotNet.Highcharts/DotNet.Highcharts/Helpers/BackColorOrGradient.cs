@@ -3,9 +3,6 @@ using DotNet.Highcharts.Attributes;
 
 namespace DotNet.Highcharts.Helpers
 {
-    // This must be set specifically as it's a special case which needs brackets
-    // for the Gradient and no brackets for the Color.
-    [JsonFormatter(addPropertyName: true, useCurlyBracketsForObject: false)]
     public class BackColorOrGradient
     {
         public BackColorOrGradient(Color color) { Color = color; }
@@ -16,7 +13,7 @@ namespace DotNet.Highcharts.Helpers
 
         public static implicit operator BackColorOrGradient(Gradient value) { return new BackColorOrGradient(value); }
 
-        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject : false)]
         public Color? Color { get; private set; }
 
         [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: true)]
@@ -26,6 +23,14 @@ namespace DotNet.Highcharts.Helpers
     public class Gradient
     {
         public int[] LinearGradient { get; set; }
+        public RadialGradient RadialGradient { get; set; }
         public object[,] Stops { get; set; }
+    }
+
+    public class RadialGradient
+    {
+        public Number Cx { get; set; }
+        public Number Cy { get; set; }
+        public Number R { get; set; }
     }
 }

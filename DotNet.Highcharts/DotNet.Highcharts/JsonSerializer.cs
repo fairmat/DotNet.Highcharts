@@ -42,25 +42,38 @@ namespace DotNet.Highcharts
                 StringBuilder values = new StringBuilder();
                 foreach (object value in obj)
                 {
-                    string jsonFormat = JSON_STRING_FORMAT;
-                    if (IsNumeric(value))
-                        jsonFormat = JSON_DEFAULT_FORMAT;
-                    values.Append(GetJsonString(string.Empty, jsonFormat, value.ToString()) + ", ");
+                    values.Append(GetJsonString(string.Empty, JSON_STRING_FORMAT, value.ToString()) + ", ");
                 }
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, (values.Length > 2) ? values.ToString(0, values.Length - 2) : values.ToString());
             }
             if (obj is int[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as int[])));
+            if (obj is int?[])
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from int? item in obj select GetJsonObject(item, false)));
             if (obj is short[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as short[])));
+            if (obj is short?[])
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from short? item in obj select GetJsonObject(item, false)));
             if (obj is long[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as long[])));
+            if (obj is long?[])
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from long? item in obj select GetJsonObject(item, false)));
             if (obj is double[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as double[]).Select(p => p.ToString(CultureInfo.InvariantCulture))));
+            if (obj is double?[])
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from double? item in obj select GetJsonObject(item, false)));
             if (obj is decimal[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as decimal[]).Select(p => p.ToString(CultureInfo.InvariantCulture))));
+            if (obj is decimal?[])
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from decimal? item in obj select GetJsonObject(item, false)));
             if (obj is Number[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as Number[])));
+            if (obj is Number?[])
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from Number? item in obj select GetJsonObject(item, false)));
+            if (obj is PercentageOrPixel[])
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from object item in obj select GetJsonObject((item as PercentageOrPixel).Value, false)));
+            if (obj is bool[])
+                return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from object item in obj select GetJsonObject(item, true)));
             if (obj is Color[]) 
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from Color item in obj select GetColorString(JSON_STRING_FORMAT, item))); 
             if (obj is object[])
@@ -171,7 +184,7 @@ namespace DotNet.Highcharts
             return string.Format("rgba({0}, {1}, {2}, {3})", color.R, color.G, color.B, htmlAlpha.ToString("#.#", CultureInfo.InvariantCulture));
         }
 
-        static string GetJsonString(string format, string defaultFormat, string value) 
+        static string GetJsonString(string format, string defaultFormat, string value)
         {
             string usedFormat = (!string.IsNullOrEmpty(format)) ? format : defaultFormat;
 
@@ -203,15 +216,8 @@ namespace DotNet.Highcharts
         {
             JsonFormatter formatter = new JsonFormatter { JsonValueFormat = string.Empty, AddPropertyName = true, UseCurlyBracketsForObject = true };
             if (property != null)
-            {
-                // First try getting defaults for the class, if any.
-                foreach (JsonFormatterAttribute attribute in property.PropertyType.GetCustomAttributes(typeof(JsonFormatterAttribute), true))
-                    formatter = attribute.JsonFormatter;
-
-                // Then get overrides for the specific entry.
                 foreach (JsonFormatterAttribute attribute in property.GetCustomAttributes(typeof(JsonFormatterAttribute), true))
                     formatter = attribute.JsonFormatter;
-            }
 
             return formatter;
         }

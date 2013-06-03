@@ -6,8 +6,16 @@ using DotNet.Highcharts.Helpers;
 
 namespace DotNet.Highcharts.Options
 {
-	public class PlotOptionsAreaPoint : PlotOptionsSeriesPoint
+	/// <summary>
+	/// Properties for each single point
+	/// </summary>
+	public class PlotOptionsAreaPoint
 	{
+		/// <summary>
+		/// Events for each single point
+		/// </summary>
+		public PlotOptionsAreaPointEvents Events { get; set; }
+
 	}
 
 }

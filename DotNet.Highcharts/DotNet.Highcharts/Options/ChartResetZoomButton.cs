@@ -17,16 +17,13 @@ namespace DotNet.Highcharts.Options
 		public Position Position { get; set; }
 
 		/// <summary>
-		/// What frame the button should be placed related to. Can be either "plot" or "chart". Defaults to "plot"
+		/// What frame the button should be placed related to. Can be either 'plot' or 'chart'.
+		/// Default: plot
 		/// </summary>
 		public RelativeTo? RelativeTo { get; set; }
 
 		/// <summary>
-		/// A collection of attributes for the button. The object takes SVG attributes like 
-		/// fill, stroke, stroke-width or r,
-		/// the border radius. The theme also supports style,
-		/// a collection of CSS properties for the text. Equivalent attributes for the hover state
-		/// are given in theme.states.hover.
+		/// A collection of attributes for the button. The object takes SVG attributes like  <code>fill</code>, <code>stroke</code>, <code>stroke-width</code> or <code>r</code>, the border radius. The theme also supports <code>style</code>, a collection of CSS properties for the text. Equivalent attributes for the hover state are given in <code>theme.states.hover</code>.
 		/// </summary>
 		public Theme Theme { get; set; }
 

@@ -66,6 +66,10 @@ namespace DotNet.Highcharts.Options
 		public Drilldown Drilldown { get; set; }
 
 		public bool? Selected { get; set; }
+
+        public bool? IsIntermediateSum { get; set; }
+        
+        public bool? IsSum { get; set; }
 	}
 
 }

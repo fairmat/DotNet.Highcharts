@@ -2,6 +2,9 @@
 
 namespace DotNet.Highcharts.Helpers
 {
+    /// <summary>
+    /// Specific Lang class that uses .NET Framework globalization 
+    /// </summary>
     public class Lang
     {
         string _DecimalPoint;

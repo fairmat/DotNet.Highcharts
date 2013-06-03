@@ -12,15 +12,12 @@ namespace DotNet.Highcharts.Options
 	public class Labels
 	{
 		/// <summary>
-		/// An array containing configuration for each label.
+		/// A HTML label that can be positioined anywhere in the chart area.
 		/// </summary>
 		public LabelsItems[] Items { get; set; }
 
 		/// <summary>
-		/// Shared CSS styles for all labels. Defaults to:
-		/// style: {
-		/// color: '#3E576F'
-		/// }
+		/// Shared CSS styles for all labels. Defaults to:<pre>style: { color: '#3E576F'}</pre>
 		/// </summary>
 		[JsonFormatter("{{ {0} }}")]
 		public string Style { get; set; }

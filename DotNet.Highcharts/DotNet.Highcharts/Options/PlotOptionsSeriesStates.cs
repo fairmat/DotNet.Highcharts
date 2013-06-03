@@ -6,12 +6,11 @@ using DotNet.Highcharts.Helpers;
 
 namespace DotNet.Highcharts.Options
 {
+	/// <summary>
+	/// A wrapper object for all the series options in specific states.
+	/// </summary>
 	public class PlotOptionsSeriesStates
 	{
-		/// <summary>
-		/// Configuration options for the hovered line. Members are 
-		/// inherited from the default line configuration, but single members can be overridden.
-		/// </summary>
 		public PlotOptionsSeriesStatesHover Hover { get; set; }
 
 	}

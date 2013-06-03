@@ -6,8 +6,13 @@ using DotNet.Highcharts.Helpers;
 
 namespace DotNet.Highcharts.Options
 {
-	public class PlotOptionsBarStates : PlotOptionsColumnStates
+	/// <summary>
+	/// A wrapper object for all the series options in specific states.
+	/// </summary>
+	public class PlotOptionsBarStates
 	{
+		public PlotOptionsBarStatesHover Hover { get; set; }
+
 	}
 
 }

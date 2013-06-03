@@ -14,6 +14,7 @@ namespace DotNet.Highcharts.Options
         /// <summary>
         /// The background color of the scrollbar itself. Defaults to a gray gradient.
         /// </summary>
+        [JsonFormatter(addPropertyName: true, useCurlyBracketsForObject: false)]
         public BackColorOrGradient BarBackgroundColor { get; set; }
 
         /// <summary>
@@ -39,6 +40,7 @@ namespace DotNet.Highcharts.Options
         /// <summary>
         /// The color of scrollbar buttons. Defaults to a gray gradient.
         /// </summary>
+        [JsonFormatter(addPropertyName: true, useCurlyBracketsForObject: false)]
         public BackColorOrGradient ButtonBackgroundColor { get; set; }
 
         /// <summary>
@@ -88,6 +90,7 @@ namespace DotNet.Highcharts.Options
         /// <summary>
         /// The color of the track background. The default is a gray gradient.
         /// </summary>
+        [JsonFormatter(addPropertyName: true, useCurlyBracketsForObject: false)]
         public BackColorOrGradient TrackBackgroundColor { get; set; }
 
         /// <summary>

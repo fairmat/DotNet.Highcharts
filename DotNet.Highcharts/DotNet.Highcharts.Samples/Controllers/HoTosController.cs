@@ -43,7 +43,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                                                            PointStart = new PointStart(new DateTime(2010, 1, 10)),
                                                            PointInterval = 24 * 3600 * 1000, // one day
                                                        },
-                                   XAxis = 1
+                                   XAxis = "1"
                                }
                            });
 
@@ -72,8 +72,8 @@ namespace DotNet.Highcharts.Samples.Controllers
                                 {
                                     Pie = new PlotOptionsPie
                                           {
-                                              Center = new[] { "100", "80" },
-                                              Size = "100",
+                                              Center = new[] { new PercentageOrPixel(100), new PercentageOrPixel(80) },
+                                              Size = new PercentageOrPixel(100),
                                               ShowInLegend = false,
                                               DataLabels = new PlotOptionsPieDataLabels { Enabled = false }
                                           }
@@ -258,7 +258,7 @@ namespace DotNet.Highcharts.Samples.Controllers
             Highcharts chart = new Highcharts("chart")
                 .SetXAxis(new XAxis { Type = AxisTypes.Datetime })
                 .SetTitle(new Title { Text = "Using .NET Globalization (German)" })
-                .SetOptions(new GlobalOptions { Lang = new Lang().SetAndUseCulture("de-DE"), Global = new Global { UseUTC = false } })
+                .SetOptions(new GlobalOptions { Lang = new Helpers.Lang().SetAndUseCulture("de-DE"), Global = new Global { UseUTC = false } })
                 .SetSeries(new Series
                            {
                                PlotOptionsSeries = new PlotOptionsSeries
@@ -430,32 +430,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                                     Spline = new PlotOptionsSpline { Marker = new PlotOptionsSplineMarker { LineColor = ColorTranslator.FromHtml("#333") } },
                                     Scatter = new PlotOptionsScatter { Marker = new PlotOptionsScatterMarker { LineColor = ColorTranslator.FromHtml("#333") } }
                                 })
-                .SetNavigation(new Navigation
-                               {
-                                   ButtonOptions = new NavigationButtonOptions
-                                                   {
-                                                       BorderColor = ColorTranslator.FromHtml("#000000"),
-                                                       SymbolStroke = ColorTranslator.FromHtml("#C0C0C0"),
-                                                       HoverSymbolStroke = ColorTranslator.FromHtml("#FFFFFF"),
-                                                       BackgroundColor = new BackColorOrGradient(new Gradient
-                                                                                                 {
-                                                                                                     LinearGradient = new[] { 0, 0, 0, 20 },
-                                                                                                     Stops = new object[,]
-                                                                                                             {
-                                                                                                                 { 0.4, ColorTranslator.FromHtml("#606060") },
-                                                                                                                 { 0.6, ColorTranslator.FromHtml("#333333") }
-                                                                                                             }
-                                                                                                 })
-                                                   }
-                               })
-                .SetExporting(new Exporting
-                              {
-                                  Buttons = new ExportingButtons
-                                            {
-                                                ExportButton = new ExportingButtonsExportButton { SymbolFill = ColorTranslator.FromHtml("#55BE3B") },
-                                                PrintButton = new ExportingButtonsPrintButton { SymbolFill = ColorTranslator.FromHtml("#7797BE") }
-                                            }
-                              })
+                .SetNavigation(new Navigation { ButtonOptions = new NavigationButtonOptions { SymbolStroke = ColorTranslator.FromHtml("#C0C0C0") } })
                 .SetSeries(new Series
                            {
                                Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
@@ -469,29 +444,43 @@ namespace DotNet.Highcharts.Samples.Controllers
             Highcharts chart = new Highcharts("chart")
                 .SetTitle(new Title { Text = "Tooltip Crosshairs" })
                 .SetTooltip(new Tooltip
-                {
-                    Crosshairs = new Crosshairs(
-                    new CrosshairsForamt
-                    {
-                        Width = 3,
-                        Color = Color.Red
-                    },
-                    new CrosshairsForamt
-                    {
-                        Width = 3,
-                        Color = Color.Aqua
-                    }
-                    )
-                })
+                            {
+                                Crosshairs = new Crosshairs(
+                                    new CrosshairsForamt
+                                    {
+                                        Width = 3,
+                                        Color = Color.Red
+                                    },
+                                    new CrosshairsForamt
+                                    {
+                                        Width = 3,
+                                        Color = Color.Aqua
+                                    }
+                                    )
+                            })
                 .SetXAxis(new XAxis
-                {
-                    Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
-                })
+                          {
+                              Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+                          })
                 .SetSeries(new Series
-                {
-                    Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
-                });
+                           {
+                               Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
+                           });
 
+            return View(chart);
+        }
+
+        public ActionResult CrosshairsWithBooleanValues()
+        {
+            Highcharts chart = new Highcharts("chart")
+                .SetXAxis(new XAxis
+                    {
+                        Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+                    })
+                .SetSeries(new Series
+                    {
+                        Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
+                    }).SetTooltip(new Tooltip { Shared = true, Crosshairs = new Crosshairs(true, true), Enabled = true });
             return View(chart);
         }
 
@@ -521,13 +510,13 @@ namespace DotNet.Highcharts.Samples.Controllers
                            })
                 .SetTitle(new Title { Text = "Theming the reset button" })
                 .SetXAxis(new XAxis
-                {
-                    Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
-                })
+                          {
+                              Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+                          })
                 .SetSeries(new Series
-                {
-                    Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
-                });
+                           {
+                               Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
+                           });
 
             return View(chart);
         }
@@ -537,25 +526,25 @@ namespace DotNet.Highcharts.Samples.Controllers
             Highcharts chart = new Highcharts("chart")
                 .SetTitle(new Title { Text = "Plot band events" })
                 .SetXAxis(new XAxis
-                {
-                    TickInterval = 24 * 3600 * 1000, // one day
-                    Type = AxisTypes.Datetime,
-                    PlotBands = new []
-                                {
-                                    new XAxisPlotBands
-                                    {
-                                        Color    = ColorTranslator.FromHtml("#FCFFC5"),
-                                        From = Tools.GetTotalMilliseconds(new DateTime(2010, 1, 2)),
-                                        To = Tools.GetTotalMilliseconds(new DateTime(2010, 1, 4)),
-                                        Events = new Events
-                                                 {
-                                                     Click = "function(e) { $('#report').html(e.type); }",
-                                                     Mouseover = "function(e) { $('#report').html(e.type); }",
-                                                     Mouseout = "function(e) { $('#report').html(e.type); }",
-                                                 }
-                                    }
-                                }
-                })
+                          {
+                              TickInterval = 24 * 3600 * 1000, // one day
+                              Type = AxisTypes.Datetime,
+                              PlotBands = new[]
+                                          {
+                                              new XAxisPlotBands
+                                              {
+                                                  Color = ColorTranslator.FromHtml("#FCFFC5"),
+                                                  From = Tools.GetTotalMilliseconds(new DateTime(2010, 1, 2)),
+                                                  To = Tools.GetTotalMilliseconds(new DateTime(2010, 1, 4)),
+                                                  Events = new Events
+                                                           {
+                                                               Click = "function(e) { $('#report').html(e.type); }",
+                                                               Mouseover = "function(e) { $('#report').html(e.type); }",
+                                                               Mouseout = "function(e) { $('#report').html(e.type); }",
+                                                           }
+                                              }
+                                          }
+                          })
                 .SetPlotOptions(new PlotOptions
                                 {
                                     Series = new PlotOptionsSeries
@@ -565,8 +554,69 @@ namespace DotNet.Highcharts.Samples.Controllers
                                              }
                                 })
                 .SetSeries(new Series
+                           {
+                               Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4 })
+                           });
+
+            return View(chart);
+        }
+
+        public ActionResult TransparentBackground()
+        {
+            Highcharts chart = new Highcharts("chart")
+                .InitChart(new Chart
+                           {
+                               BackgroundColor = new BackColorOrGradient(new Gradient
+                               {
+                                   LinearGradient = new[] { 0, 0, 0, 400 },
+                                   Stops = new object[,]
+            {
+                { 0, Color.FromArgb(13, 255, 255, 255) },
+                { 1, Color.FromArgb(13, 255, 255, 255) }
+            }
+                               })
+                           })
+                .SetTitle(new Title { Text = "Disabled background" })
+                .SetPlotOptions(new PlotOptions { Column = new PlotOptionsColumn { Animation = new Animation(false) } })
+                .SetXAxis(new XAxis
+                          {
+                              Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+                          })
+                .SetSeries(new Series
+                           {
+                               Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
+                           });
+            return View(chart);
+        }
+
+        public ActionResult PieChartWithEvents()
+        {
+            Highcharts chart = new Highcharts("chart")
+                .InitChart(new Chart())
+                .SetPlotOptions(new PlotOptions
                 {
-                    Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4 })
+                    Pie = new PlotOptionsPie
+                    {
+                        AllowPointSelect = true,
+                        Cursor = Cursors.Pointer,
+                        ShowInLegend = true,
+                        Events = new PlotOptionsPieEvents { Click = "function(event) { alert('The slice was clicked!'); }" },
+                        Point = new PlotOptionsPiePoint { Events = new PlotOptionsPiePointEvents { LegendItemClick = "function(event) { if (!confirm('Do you want to toggle the visibility of this slice?')) { return false; } }" } }
+                    }
+                })
+                .SetSeries(new Series
+                {
+                    Type = ChartTypes.Pie,
+                    Name = "Browser share",
+                    Data = new Data(new object[]
+                                    {
+                                        new object[] { "Firefox", 45.0 },
+                                        new object[] { "IE", 26.8 },
+                                        new object[] { "Chrome", 12.8},
+                                        new object[] { "Safari", 8.5 },
+                                        new object[] { "Opera", 6.2 },
+                                        new object[] { "Other\\'s", 0.7 }
+                                    })
                 });
 
             return View(chart);
