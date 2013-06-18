@@ -61,6 +61,8 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public string YAxis { get; set; }
 
+        public bool? Visible { get; set; }
+
 		public Color? Color { get; set; }
 
 		public Color? UpColor { get; set; }
