@@ -2908,7 +2908,7 @@ if (CanvasRenderingContext2D) {
 		});
 	}
 }/**
- * @license Highstock JS v1.3.1 (2013-04-09)
+ * @license Highstock JS v1.3.2 (2013-06-05)
  * CanVGRenderer Extension module
  *
  * (c) 2011-2012 Torstein Hønsi, Erik Olsson
