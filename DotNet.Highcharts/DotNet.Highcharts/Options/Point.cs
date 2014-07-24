@@ -56,12 +56,12 @@ namespace DotNet.Highcharts.Options
 		/// <summary>
 		/// The x value of the point Defaults to null
 		/// </summary>
-		public Number? X { get; set; }
+		public Object X { get; set; }
 
 		/// <summary>
 		/// The y value of the point Defaults to null
 		/// </summary>
-		public Number? Y { get; set; }
+        public Object Y { get; set; }
 
 		public Drilldown Drilldown { get; set; }
 
