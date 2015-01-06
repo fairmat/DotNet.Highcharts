@@ -96,6 +96,24 @@ namespace DotNet.Highcharts
             if (obj is Array)
                 return GetJsonArray(obj as Array, appendCurlyBrackets);
 
+            // Handle generic dictionaries with self defined properties. string: data.
+            if (obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>) &&
+                obj.GetType().GetGenericArguments()[0] == typeof(string))
+            {
+                List<string> jsonEntry = new List<string>();
+                JsonFormatter form = GetJsonFormatter(null);
+
+                // For each dictionary entry prepare it as a property to be added
+                foreach (KeyValuePair<string, object> entry in (Dictionary<string, object>)obj)
+                {
+                    string value = GetValue(entry.Value, entry.Value.GetType(), form);
+                    jsonEntry.Add(form.AddPropertyName ? string.Format(JSON_PROPERTY_WITH_VALUE_FORMAT, GetFirstLetterLower(entry.Key), value) : value);
+                }
+
+                // End formatting and return the result.
+                return appendCurlyBrackets ? string.Format(JSON_OBJECT_FORMAT, string.Join(", ", jsonEntry)) : string.Join(", ", jsonEntry);
+            }
+
             List<string> json = new List<string>();
 
             foreach (PropertyInfo property in obj.GetType().GetMembers().Where(x => x.MemberType == MemberTypes.Property))
@@ -135,6 +153,8 @@ namespace DotNet.Highcharts
                 return GetJsonString(formatter.JsonValueFormat, JSON_DEFAULT_FORMAT, value.ToString());
             if (value is double)
                 return GetJsonString(formatter.JsonValueFormat, JSON_DEFAULT_FORMAT, ((double)value).ToString(CultureInfo.InvariantCulture));
+            if (value is float)
+                return GetJsonString(formatter.JsonValueFormat, JSON_DEFAULT_FORMAT, ((float)value).ToString(CultureInfo.InvariantCulture));
             if (value is decimal)
                 return GetJsonString(formatter.JsonValueFormat, JSON_DEFAULT_FORMAT, ((decimal)value).ToString(CultureInfo.InvariantCulture));
             if (value is bool)
