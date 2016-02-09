@@ -70,6 +70,10 @@ namespace DotNet.Highcharts.Options
         public bool? IsIntermediateSum { get; set; }
         
         public bool? IsSum { get; set; }
+
+        // Additional Properties
+        public Object ViewY { get; set; }
+        public Object DeltaY { get; set; }
 	}
 
 }
