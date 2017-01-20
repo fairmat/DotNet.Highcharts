@@ -64,6 +64,12 @@ namespace DotNet.Highcharts.Options
 		public Color? Color { get; set; }
 
 		public Color? UpColor { get; set; }
+        
+		/// <summary>
+		/// Gets or sets the series' visibility state.
+		/// Default: null, means visible.
+		/// </summary>
+		public bool? Visible { get; set; }
 
 		[JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
 		public PlotOptionsArea PlotOptionsArea { get; set; }
