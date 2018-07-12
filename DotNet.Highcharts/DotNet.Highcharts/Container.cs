@@ -20,7 +20,14 @@ namespace DotNet.Highcharts
         public string ToHtmlString()
         {
             StringBuilder scripts = new StringBuilder();
-            _Highcharts.ForEach(x => scripts.AppendLine("<div id='{0}'></div>".FormatWith(x.ContainerName)));
+            _Highcharts.ForEach(x =>
+            {
+                string style = "";
+                if (x.ContainerOptions != null && x.ContainerOptions.MatchParentHeight)
+                    style = "style='height: 100%;'";
+
+                scripts.AppendLine("<div id='{0}' {1}></div>".FormatWith(x.ContainerName, style));
+            });
 
             List<Highcharts> startupCharts = _Highcharts.Where(x => string.IsNullOrEmpty(x.FunctionName)).ToList();
             scripts.AppendLine("<script type='text/javascript'>");

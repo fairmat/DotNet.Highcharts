@@ -21,6 +21,8 @@ namespace DotNet.Highcharts
 
         internal string FunctionName { get; private set; }
 
+        internal ContainerOptions ContainerOptions;
+
         Chart _Chart;
         Credits _Credits;
         Labels _Labels;
@@ -40,6 +42,7 @@ namespace DotNet.Highcharts
         YAxis[] _YAxisArray;
         Exporting _Exporting;
         Navigation _Navigation;
+        
 
         /// <summary>
         /// The chart object is the JavaScript object representing a single chart in the web page.
@@ -262,6 +265,12 @@ namespace DotNet.Highcharts
         public Highcharts SetNavigation(Navigation navigation)
         {
             _Navigation = navigation;
+            return this;
+        }
+
+        public Highcharts SetContainerOptions(ContainerOptions options)
+        {
+            ContainerOptions = options;
             return this;
         }
 
