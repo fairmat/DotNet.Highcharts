@@ -21,7 +21,7 @@ namespace DotNet.Highcharts
 
         internal string FunctionName { get; private set; }
 
-        internal ContainerOptions ContainerOptions;
+        internal ContainerOptions ContainerOptions { get; private set; }
 
         Chart _Chart;
         Credits _Credits;

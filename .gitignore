@@ -327,3 +327,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
+*.exe
+*.nuspec
+DotNet.Highcharts/DotNet.Highcharts/Properties/AssemblyInfo.cs
+DotNet.Highcharts/DotNet.Highcharts/Properties/AssemblyInfo.cs

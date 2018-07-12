@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DotNet.Highcharts")]
+[assembly: AssemblyTitle("CareATC.DotNet.Highcharts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Vangi.NET")]
-[assembly: AssemblyProduct("DotNet.Highcharts")]
-[assembly: AssemblyCopyright("Copyright © Vangi.NET 2011")]
+[assembly: AssemblyCompany("CareATC, Inc")]
+[assembly: AssemblyProduct("CareATC.DotNet.Highcharts")]
+[assembly: AssemblyCopyright("Copyright © CareATC 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
+[assembly: AssemblyVersion("2.0.0.1")]
+[assembly: AssemblyFileVersion("2.0.0.1")]
