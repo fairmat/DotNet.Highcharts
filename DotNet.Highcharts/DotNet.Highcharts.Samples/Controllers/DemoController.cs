@@ -22,6 +22,10 @@ namespace DotNet.Highcharts.Samples.Controllers
                         MarginBottom = 25,
                         ClassName = "chart"
                     })
+                .SetContainerOptions(new ContainerOptions
+                {
+                    MatchParentHeight = true
+                })
                 .SetTitle(new Title
                     {
                         Text = "Monthly Average Temperature",

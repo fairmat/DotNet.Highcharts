@@ -313,7 +313,11 @@ namespace DotNet.Highcharts
         {
             StringBuilder scripts = new StringBuilder();
 
-            scripts.AppendLine("<div id='{0}'></div>".FormatWith(ContainerName));
+            string style = "";
+            if (ContainerOptions != null && ContainerOptions.MatchParentHeight)
+                style = "style='height: 100%;'";
+
+            scripts.AppendLine("<div id='{0}' {1}></div>".FormatWith(ContainerName, style));
             scripts.AppendLine("<script type='text/javascript'>");
             if (Options != null)
                 scripts.AppendLine("Highcharts.setOptions({0});".FormatWith(JsonSerializer.Serialize(Options)));
