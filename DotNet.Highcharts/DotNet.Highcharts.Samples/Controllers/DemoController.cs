@@ -78,6 +78,27 @@ namespace DotNet.Highcharts.Samples.Controllers
             return View(chart);
         }
 
+        public ActionResult ColumnData()
+        {
+            var chart = new Highcharts("chart")
+                .SetTitle(new Title { Text = "Data input as row arrays" })
+                .InitChart(new Chart
+                {
+                    Type = ChartTypes.Column
+                })
+                .SetData(new HighchartsData
+                {
+                    Rows = new object[,] {
+                        {null, "Ola", "Kari"}, // series names
+                        {"Apples", 1, 5}, // category and values
+                        {"Pears", 4, 4}, // category and values
+                        {"Oranges", 3, 2} // category and values
+                     }
+                });
+
+            return View(chart);
+        }
+
         public ActionResult AjaxLoad()
         {
             Highcharts chart = new Highcharts("chart")

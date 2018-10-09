@@ -1,9 +1,9 @@
-﻿using System;
+﻿using DotNet.Highcharts.Helpers;
+using DotNet.Highcharts.Options;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
-using DotNet.Highcharts.Helpers;
-using DotNet.Highcharts.Options;
 
 namespace DotNet.Highcharts
 {
@@ -24,6 +24,7 @@ namespace DotNet.Highcharts
         internal ContainerOptions ContainerOptions { get; private set; }
 
         Chart _Chart;
+        HighchartsData _Data;
         Credits _Credits;
         Labels _Labels;
         Legend _Legend;
@@ -42,7 +43,6 @@ namespace DotNet.Highcharts
         YAxis[] _YAxisArray;
         Exporting _Exporting;
         Navigation _Navigation;
-        
 
         /// <summary>
         /// The chart object is the JavaScript object representing a single chart in the web page.
@@ -90,6 +90,12 @@ namespace DotNet.Highcharts
         public Highcharts SetCredits(Credits credits)
         {
             _Credits = credits;
+            return this;
+        }
+
+        public Highcharts SetData(HighchartsData data)
+        {
+            _Data = data;
             return this;
         }
 
@@ -354,6 +360,12 @@ namespace DotNet.Highcharts
             {
                 options.AppendLine(", ");
                 options.Append("credits: {0}".FormatWith(JsonSerializer.Serialize(_Credits)), 2);
+            }
+
+            if (_Data != null)
+            {
+                options.AppendLine(", ");
+                options.AppendLine("data: {0}".FormatWith(JsonSerializer.Serialize(_Data)), 2);
             }
 
             if (_Labels != null)
