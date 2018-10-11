@@ -1,18 +1,23 @@
-using System;
-using System.Drawing;
-using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Attributes;
+using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
+using System.Drawing;
 
 namespace DotNet.Highcharts.Options
 {
-	public class PlotOptionsSeriesDataLabels
+    public class PlotOptionsSeriesDataLabels
 	{
 		/// <summary>
 		/// The alignment of the data label compared to the point. Can be  one of 'left', 'center' or 'right'. Defaults to <code>'center'</code>.
 		/// Default: center
 		/// </summary>
 		public HorizontalAligns? Align { get; set; }
+
+        /// <summary>
+        /// Whether to allow data labels to overlap. To make the labels less sensitive for overlapping, the dataLabels.padding can be set to 0.
+	    /// Default: false.
+        /// </summary>
+        public bool? AllowOverlap { get; set; }
 
 		/// <summary>
 		/// The background color or gradient for the data label. Defaults to <code>undefined</code>.
@@ -37,6 +42,12 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public Number? BorderWidth { get; set; }
 
+        /// <summary>
+        /// A class name for the data label. Particularly in styled mode, this can be used to give each series' or point's data label unique styling. In addition to this option, a default color class name is added so that we can give the labels a contrast text shadow.
+        /// Default: undefined
+        /// </summary>
+        public string ClassName { get; set; }
+
 		/// <summary>
 		/// The text color for the data labels. Defaults to <code>null</code>.
 		/// </summary>
@@ -48,11 +59,19 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public bool? Crop { get; set; }
 
+        /// <summary>
+        /// Whether to defer displaying the data labels until the initial series animation has finished.
+        /// Default: true
+        /// </summary>
+        public bool? Defer { get; set; }
+
 		/// <summary>
 		/// Enable or disable the data labels. Defaults to <code>false</code>.
 		/// Default: false
 		/// </summary>
 		public bool? Enabled { get; set; }
+
+        //TODO: Implement Filter Property
 
 		/// <summary>
 		/// A <a href='http://docs.highcharts.com/#formatting'>format string</a> for the data label. Available variables are the same as for <code>formatter</code>.
@@ -71,6 +90,12 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public bool? Inside { get; set; }
 
+        /// <summary>
+        /// How to handle data labels that flow outside the plot area. The default is "justify", which aligns them inside the plot area. For columns and bars, this means it will be moved inside the bar. To display data labels outside the plot area, set crop to false and overflow to "allow".
+        /// Default: justify
+        /// </summary>
+        public string Overflow { get; set; }
+
 		/// <summary>
 		/// When either the <code>borderWidth</code> or the <code>backgroundColor</code> is set, this is the padding within the box. Defaults to <code>2</code>.
 		/// Default: 2
@@ -88,6 +113,8 @@ namespace DotNet.Highcharts.Options
 		/// Default: false
 		/// </summary>
 		public bool? Shadow { get; set; }
+
+        //TODO: Implement Shape Property
 
 		/// <summary>
 		/// Styles for the label.
