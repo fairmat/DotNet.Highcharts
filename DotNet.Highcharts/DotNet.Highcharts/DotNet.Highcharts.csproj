@@ -340,6 +340,8 @@
     <Compile Include="Options\Title.cs" />
     <Compile Include="Options\Tooltip.cs" />
     <Compile Include="Options\XAxis.cs" />
+    <Compile Include="Options\XAxisBreaks.cs" />
+    <Compile Include="Options\XAxisCrosshair.cs" />
     <Compile Include="Options\XAxisEvents.cs" />
     <Compile Include="Options\XAxisLabels.cs" />
     <Compile Include="Options\XAxisPlotBands.cs" />
