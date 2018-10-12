@@ -583,7 +583,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                 .SetXAxis(new XAxis
                     {
                         Categories = new[] { "1750", "1800", "1850", "1900", "1950", "1999", "2050" },
-                        TickmarkPlacement = Placement.On,
+                        TickmarkPlacement = Placement.On.ToString(),
                     })
                 .SetYAxis(new YAxis
                     {
@@ -626,7 +626,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                 .SetXAxis(new XAxis
                     {
                         Categories = new[] { "1750", "1800", "1850", "1900", "1950", "1999", "2050" },
-                        TickmarkPlacement = Placement.On,
+                        TickmarkPlacement = Placement.On.ToString(),
                     })
                 .SetYAxis(new YAxis { Title = new YAxisTitle { Text = "Percent" } })
                 .SetTooltip(new Tooltip { Formatter = "function() { return this.x +': '+ Highcharts.numberFormat(this.percentage, 1) +'% ('+ Highcharts.numberFormat(this.y, 0, ',') +' millions)'; }" })
@@ -2462,7 +2462,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                 .SetXAxis(new XAxis
                     {
                         Categories = new[] { "Sales", "Marketing", "Development", "Customer Support", "Information Technology", "Administration" },
-                        TickmarkPlacement = Placement.On,
+                        TickmarkPlacement = Placement.On.ToString(),
                         LineWidth = 0
                     })
                 .SetYAxis(new YAxis
