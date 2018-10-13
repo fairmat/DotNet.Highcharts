@@ -4,6 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
+using DotNet.Highcharts.Options.Exporting;
+using DotNet.Highcharts.Options.Legend;
+using DotNet.Highcharts.Options.PlotOptions;
+using DotNet.Highcharts.Options.Series;
+using DotNet.Highcharts.Options.XAxis;
+using DotNet.Highcharts.Options.YAxis;
 
 namespace DotNet.Highcharts
 {

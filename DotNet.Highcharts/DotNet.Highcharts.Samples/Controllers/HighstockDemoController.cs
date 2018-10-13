@@ -5,6 +5,10 @@ using System.Web.Mvc;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
 using DotNet.Highcharts.Options;
+using DotNet.Highcharts.Options.Exporting;
+using DotNet.Highcharts.Options.PlotOptions;
+using DotNet.Highcharts.Options.Series;
+using DotNet.Highcharts.Options.YAxis;
 using DotNet.Highcharts.Samples.Models;
 using Point = DotNet.Highcharts.Options.Point;
 
