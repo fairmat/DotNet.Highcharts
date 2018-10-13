@@ -121,6 +121,7 @@ namespace DotNet.Highcharts.Options.ParallelAxes
         /// In styled mode, the labels are styled with the .highcharts-axis-labels class.
         /// Default: {"color": "#666666", "cursor": "default", "fontSize": "11px"}
         /// </summary>
+        [JsonFormatter("{{ {0} }}")]
         public string Style { get; set; }
 
         /// <summary>

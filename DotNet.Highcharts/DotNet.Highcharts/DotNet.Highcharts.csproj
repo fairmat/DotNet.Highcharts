@@ -346,6 +346,7 @@
     <Compile Include="Options\PointEvents.cs" />
     <Compile Include="Options\PointMarker.cs" />
     <Compile Include="Options\RangeSelector.cs" />
+    <Compile Include="Options\ScrollablePlotArea.cs" />
     <Compile Include="Options\Scrollbar.cs" />
     <Compile Include="Options\Series\Series.cs" />
     <Compile Include="Options\Series\SeriesData.cs" />

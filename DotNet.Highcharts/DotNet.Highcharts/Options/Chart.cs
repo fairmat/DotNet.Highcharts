@@ -220,6 +220,15 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public ChartResetZoomButton ResetZoomButton { get; set; }
 
+        /// <summary>
+        /// Options for a scrollable plot area. This feature provides a minimum width for the 
+        /// plot area of the chart. If the width gets smaller than this, typically on mobile 
+        /// devices, a native browser scrollbar is presented below the chart. This scrollbar 
+        /// provides smooth scrolling for the contents of the plot area, whereas the title, 
+        /// legend and axes are fixed.
+        /// </summary>
+        public ScrollablePlotArea ScrollablePlotArea { get; set; }
+
 		/// <summary>
 		/// The background color of the marker square when selecting (zooming in on) an area of the chart.
 		/// Default: rgba(69,114,167,0.25)
@@ -237,6 +246,15 @@ namespace DotNet.Highcharts.Options
 		/// Default: false
 		/// </summary>
 		public bool? ShowAxes { get; set; }
+
+        /// <summary>
+        /// The distance between the outer edge of the chart and the content, like title or legend, 
+        /// or axis title and labels if present. The numbers in the array designate top, right, bottom 
+        /// and left respectively. Use the options spacingTop, spacingRight, spacingBottom and spacingLeft 
+        /// options for shorthand setting of one option.
+        /// Default: [10, 10, 15, 10]
+        /// </summary>
+        public Number?[] Spacing { get; set; }
 
 		/// <summary>
 		/// <p>The space between the bottom edge of the chart and the content (plot area, axis title and labels, title, subtitle or  legend in top position).</p> .
@@ -273,6 +291,14 @@ namespace DotNet.Highcharts.Options
 		/// Default: line
 		/// </summary>
 		public ChartTypes? Type { get; set; }
+
+        /// <summary>
+        /// A text description of the chart type.
+        /// If the Accessibility module is loaded, this will be included in the description of the chart in the screen reader information region.
+        /// Highcharts will by default attempt to guess the chart type, but for more complex charts it is recommended to specify this property for clarity.
+        /// Default: undefined
+        /// </summary>
+        public string TypeDescription { get; set; }
 
 		/// <summary>
 		/// An explicit width for the chart. By default the width is calculated from the offset width of the containing element.
