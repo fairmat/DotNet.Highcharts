@@ -58,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\TickmarkPlacements.cs" />
+    <Compile Include="Helpers\StringNumber.cs" />
+    <Compile Include="Helpers\StringBool.cs" />
     <Compile Include="Options\Accessibility\Accessibility.cs" />
     <Compile Include="Options\Accessibility\AccessibilityKeyboardNavigation.cs" />
     <Compile Include="Options\Accessibility\AccessibilityKeyboardNavigationModes.cs" />
@@ -135,7 +138,16 @@
     <Compile Include="Options\Navigation.cs" />
     <Compile Include="Options\NavigationButtonOptions.cs" />
     <Compile Include="Options\Navigator.cs" />
+    <Compile Include="Options\Options3d\Options3d.cs" />
+    <Compile Include="Options\Options3d\Options3dFrame.cs" />
+    <Compile Include="Options\Options3d\Options3dFrameSide.cs" />
+    <Compile Include="Options\Options3d\Options3dSpecificFrameSide.cs" />
     <Compile Include="Options\Pane.cs" />
+    <Compile Include="Options\ParallelAxes\ParallelAxes.cs" />
+    <Compile Include="Options\ParallelAxes\ParallelAxesCrosshair.cs" />
+    <Compile Include="Options\ParallelAxes\ParallelAxesEvents.cs" />
+    <Compile Include="Options\ParallelAxes\ParallelAxesLabels.cs" />
+    <Compile Include="Options\ParallelAxes\ParallelAxesTitle.cs" />
     <Compile Include="Options\PlotOptions\PlotOptions.cs" />
     <Compile Include="Options\PlotOptions\PlotOptionsArea.cs" />
     <Compile Include="Options\PlotOptions\PlotOptionsAreaDataLabels.cs" />

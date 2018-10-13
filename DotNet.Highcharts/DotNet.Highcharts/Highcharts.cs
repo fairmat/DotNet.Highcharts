@@ -391,7 +391,9 @@ namespace DotNet.Highcharts
             }
             else
             {
-                options.Append(_chart != null ? "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_chart, false)) : "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
+                options.Append(_chart != null ? 
+                    "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_chart, false)) : 
+                    "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
             }
 
             if (_accessibility != null)

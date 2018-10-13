@@ -3,6 +3,7 @@ using System.Drawing;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Attributes;
 using DotNet.Highcharts.Helpers;
+// ReSharper disable InconsistentNaming
 
 namespace DotNet.Highcharts.Options
 {
@@ -58,6 +59,7 @@ namespace DotNet.Highcharts.Options
 		/// Alias of <code>type</code>.
 		/// Default: line
 		/// </summary>
+		[Obsolete]
 		public ChartTypes? DefaultSeriesType { get; set; }
 
         /// <summary>
@@ -72,10 +74,12 @@ namespace DotNet.Highcharts.Options
 		/// </summary>
 		public ChartEvents Events { get; set; }
 
-		/// <summary>
-		/// An explicit height for the chart. By default the height is calculated from the offset height of the containing element, or 400 pixels if the containing element's height is 0.
-		/// </summary>
-		public Number? Height { get; set; }
+        /// <summary>
+        /// An explicit height for the chart. If a number, the height is given in pixels. If given a percentage string (for example '56%'), the height is given as the percentage of the actual chart width. This allows for preserving the aspect ratio across responsive sizes.
+        /// By default (when null) the height is calculated from the offset height of the containing element, or 400 pixels if the containing element's height is 0.
+        /// Default: null
+        /// </summary>
+        public StringNumber? Height { get; set; }
 
 		/// <summary>
 		/// If true, the axes will scale to the remaining visible series once one series is hidden. If false, hiding and showing a series will not affect the axes or the other series. For stacks, once one series within the stack is hidden, the rest of the stack will close in around it even if the axis is not affected.
@@ -92,7 +96,7 @@ namespace DotNet.Highcharts.Options
 		/// <summary>
 		/// <p>The margin between the outer edge of the chart and the plot area. The numbers in the array designate top, right, bottom and left respectively. Use the options <code>marginTop</code>, <code>marginRight</code>, <code>marginBottom</code> and <code>marginLeft</code> for shorthand setting of one option.</p> <p>Since version 2.1, the margin is 0 by default. The actual space is dynamically calculated  from the offset of axis labels, axis title, title, subtitle and legend in addition to the <code>spacingTop</code>, <code>spacingRight</code>, <code>spacingBottom</code> and <code>spacingLeft</code> options.</p> Defaults to <code>[null]</code>.
 		/// </summary>
-		public int[] Margin { get; set; }
+		public Number?[] Margin { get; set; }
 
 		/// <summary>
 		/// The margin between the bottom outer edge of the chart and the plot area. Use this to set a fixed pixel value for the margin as opposed to the default dynamic margin. See also <code>spacingBottom</code>.
@@ -113,6 +117,51 @@ namespace DotNet.Highcharts.Options
 		/// The margin between the top outer edge of the chart and the plot area. Use this to set a fixed pixel value for the margin as opposed to the default dynamic margin. See also <code>spacingTop</code>.
 		/// </summary>
 		public Number? MarginTop { get; set; }
+
+        /// <summary>
+        /// Options to render charts in 3 dimensions. This feature requires highcharts-3d.js, found in the download package or online at code.highcharts.com/highcharts-3d.js.
+        /// </summary>
+        public Options3d.Options3d Options3d { get; set; }
+
+        /// <summary>
+        /// Allows setting a key to switch between zooming and panning. Can be one of alt, ctrl, meta (the command key on Mac and Windows key on Windows) or shift. The keys are mapped directly to the key properties of the click event argument (event.altKey, event.ctrlKey, event.metaKey and event.shiftKey).
+        /// Default: undefined
+        /// </summary>
+        public string PanKey { get; set; }
+
+        /// <summary>
+        /// Allow panning in a chart. Best used with panKey to combine zooming and panning.
+        /// On touch devices, when the tooltip.followTouchMove option is true (default), panning requires two fingers. To allow panning with one finger, set followTouchMove to false.
+        /// Default: false
+        /// </summary>
+        public bool? Panning { get; set; }
+
+        /// <summary>
+        /// Common options for all yAxes rendered in a parallel coordinates plot. This feature requires modules/parallel-coordinates.js.
+        /// The default options are:
+        ///parallelAxes: {
+        ///     lineWidth: 1,       // classic mode only
+        ///     gridlinesWidth: 0,  // classic mode only
+        ///     title: {
+        ///         text: '',
+        ///         reserveSpace: false
+        ///     },
+        ///     labels: {
+        ///         x: 0,
+        ///         y: 0,
+        ///         align: 'center',
+        ///         reserveSpace: false
+        ///     },
+        ///     offset: 0
+        ///  }
+        /// </summary>
+        public ParallelAxes.ParallelAxes ParallelAxes { get; set; }
+
+        /// <summary>
+        /// Flag to render charts as a parallel coordinates plot. In a parallel coordinates plot (||-coords) by default all required yAxes are generated and the legend is disabled. This feature requires modules/parallel-coordinates.js.
+        /// Default: false
+        /// </summary>
+        public bool? ParallelCoordinates { get; set; }
 
 		/// <summary>
 		/// Equivalent to <a href='#chart.zoomType'>zoomType</a>, but for multitouch gestures only. By default, the <code>pinchType</code> is the same as the <code>zoomType</code> setting. However, pinching can be enabled separately in some cases, for example in stock charts where a mouse drag pans the chart, while pinching is enabled.

@@ -147,7 +147,7 @@ namespace DotNet.Highcharts
                     jsonFormat = JSON_DEFAULT_FORMAT;
                 return GetJsonString(formatter.JsonValueFormat, jsonFormat, value.ToString().Replace("\r\n", " ").Replace("  ", ""));
             }
-            if (value is int || value is long || value is short || value is byte || type == typeof(Number))
+            if (value is int || value is long || value is short || value is byte || type == typeof(Number) || type == typeof(StringNumber) || type == typeof(StringBool))
                 return GetJsonString(formatter.JsonValueFormat, JSON_DEFAULT_FORMAT, value.ToString());
             if (value is double)
                 return GetJsonString(formatter.JsonValueFormat, JSON_DEFAULT_FORMAT, ((double)value).ToString(CultureInfo.InvariantCulture));
