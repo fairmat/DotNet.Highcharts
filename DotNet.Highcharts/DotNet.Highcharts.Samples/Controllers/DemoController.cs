@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
 using DotNet.Highcharts.Options;
+using DotNet.Highcharts.Options.Accessibility;
 using DotNet.Highcharts.Options.Exporting;
 using DotNet.Highcharts.Options.Legend;
 using DotNet.Highcharts.Options.PlotOptions;
@@ -1369,6 +1370,70 @@ namespace DotNet.Highcharts.Samples.Controllers
 
                             })
                     });
+
+            return View(chart);
+        }
+
+        public ActionResult CustomFocusRing()
+        {
+            var chart = new Highcharts("chart")
+                .InitChart(new Chart
+                {
+                    Type = ChartTypes.Pie,
+                    Description = "Respondents' current level of employment. The results clearly reflect the significant unemployment and underemployment of individuals with disabilities, with only 40.7% of respondents being employed full time."
+                })
+                .SetAccessibility(new Accessibility
+                {
+                    KeyboardNavigation = new AccessibilityKeyboardNavigation
+                    {
+                        FocusBorder = new FocusBorder
+                        {
+                            Style = new FocusBorderStyle
+                            {
+                                LineWidth = 3,
+                                Color = ColorTranslator.FromHtml("#aa1111"),
+                                BorderRadius = 5
+                            },
+                            Margin = 4
+                        }
+                    }
+                })
+                .SetTitle(new Title
+                {
+                    Text = "WEBAIM survey"
+                })
+                .SetSubtitle(new Subtitle
+                {
+                    Text = "Level of employment"
+                })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Series = new PlotOptionsSeries
+                    {
+                        DataLabels = new PlotOptionsSeriesDataLabels
+                        {
+                            Enabled = true,
+                            Format = "<b>{point.name}</b>: {point.percentage:.1f} %"
+                        }
+                    }
+                })
+                .SetSeries(
+                    new Series
+                    {
+                        Name = "Percentage Usage",
+                        ShowInLegend = true,
+                        PlotOptionsPie = new PlotOptionsPie
+                        {
+                            Depth = 40
+                        },
+                        Data = new Data(new object[]
+                        {
+                            new object[] {"Full time employment", 40.7},
+                            new object[] {"Part time employment", 13.9},
+                            new object[] {"Unemployed", 45.5}
+                        })
+                    }
+                );
 
             return View(chart);
         }

@@ -2479,6 +2479,7 @@
     <Content Include="Views\HighstockDemo\HighstockYAxisPlotLines.cshtml" />
     <Content Include="Views\HighstockDemo\HighstockYAxisReversed.cshtml" />
     <Content Include="Views\Demo\ColumnData.cshtml" />
+    <Content Include="Views\Demo\CustomFocusRing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

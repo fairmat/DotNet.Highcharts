@@ -40,6 +40,12 @@ namespace DotNet.Highcharts.Options.Series
 		/// </summary>
 		public string Name { get; set; }
 
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series.
+        /// Default: true
+        /// </summary>
+        public bool ShowInLegend { get; set; }
+
 		/// <summary>
 		/// This option allows grouping series in a stacked chart. The stack option can be a string  or a number or anything else, as long as the grouped series' stack options match each other.
 		/// </summary>

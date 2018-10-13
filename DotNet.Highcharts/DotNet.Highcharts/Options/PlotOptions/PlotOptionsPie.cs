@@ -50,6 +50,12 @@ namespace DotNet.Highcharts.Options.PlotOptions
 
 		public PlotOptionsPieDataLabels DataLabels { get; set; }
 
+        /// <summary>
+        /// The thickness of a 3D pie. Requires highcharts-3d.js
+        /// Default: 0
+        /// </summary>
+        public Number? Depth { get; set; }
+
 		/// <summary>
 		/// Enable or disable the mouse tracking for a specific series. This includes point tooltips and click events on graphs and points. For large datasets it improves performance.
 		/// Default: true

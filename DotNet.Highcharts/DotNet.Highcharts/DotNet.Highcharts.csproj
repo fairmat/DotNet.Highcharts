@@ -58,6 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Options\Accessibility\Accessibility.cs" />
+    <Compile Include="Options\Accessibility\AccessibilityKeyboardNavigation.cs" />
+    <Compile Include="Options\Accessibility\AccessibilityKeyboardNavigationModes.cs" />
+    <Compile Include="Options\Accessibility\FocusBorder.cs" />
+    <Compile Include="Options\Accessibility\FocusBorderStyle.cs" />
     <Compile Include="Attributes\JsonFormatterAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
