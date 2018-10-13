@@ -108,6 +108,8 @@
     <Compile Include="JsonSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Options\Boost\Boost.cs" />
+    <Compile Include="Options\Boost\BoostDebug.cs" />
     <Compile Include="Options\Chart.cs" />
     <Compile Include="Options\ChartEvents.cs" />
     <Compile Include="Options\ChartResetZoomButton.cs" />

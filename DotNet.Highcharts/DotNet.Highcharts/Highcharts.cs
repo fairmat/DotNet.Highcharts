@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
+using DotNet.Highcharts.Options.Boost;
 
 namespace DotNet.Highcharts
 {
@@ -31,6 +32,7 @@ namespace DotNet.Highcharts
         internal ContainerOptions ContainerOptions { get; private set; }
 
         private Accessibility _accessibility;
+        private Boost _boost;
         private Chart _chart;
         private HighchartsData _data;
         private Credits _credits;
@@ -100,6 +102,17 @@ namespace DotNet.Highcharts
         public Highcharts SetAccessibility(Accessibility accessibility)
         {
             _accessibility = accessibility;
+            return this;
+        }
+
+        /// <summary>
+        /// Options regarding boost. Using boost enables WebGL rendering instead of the default Javascript rendering.
+        /// </summary>
+        /// <param name="boost"></param>
+        /// <returns></returns>
+        public Highcharts SetBoost(Boost boost)
+        {
+            _boost = boost;
             return this;
         }
 
