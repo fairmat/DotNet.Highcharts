@@ -265,7 +265,7 @@ namespace DotNet.Highcharts.Options.YAxis
 		/// An array defining where the ticks are laid out on the axis. This overrides the default behaviour of <a href='#xAxis.tickPixelInterval'>tickPixelInterval</a> and <a href='#xAxis.tickInterval'>tickInterval</a>.
 		/// Default: null
 		/// </summary>
-		public Number?[] TickPositions { get; set; }
+		public Number[] TickPositions { get; set; }
 
 		/// <summary>
 		/// The pixel width of the major tick marks.

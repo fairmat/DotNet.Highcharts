@@ -2,17 +2,16 @@
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
 
-namespace DotNet.Highcharts.Options.ParallelAxes
+namespace DotNet.Highcharts.Options.ColorAxis
 {
     /// <summary>
-    /// The axis labels show the number or category for each tick.
+    /// The axis labels show the number for each tick.
     /// </summary>
-    public class ParallelAxesLabels
+    public class ColorAxisLabels
     {
         /// <summary>
-        /// What part of the string the given position is anchored to. Can be one of "left", "center" or "right". The exact position also depends on the labels.x setting.
-        /// Angular gauges and solid gauges defaults to center.
-        /// Default: center
+        /// What part of the string the given position is anchored to. If left, the left side of the string is at the axis position. Can be one of "left", "center" or "right". Defaults to an intelligent guess based on which side of the chart the axis is on and the rotation of the label.
+        /// Default: undefined
         /// </summary>
         public HorizontalAligns? Align { get; set; }
 
@@ -29,8 +28,8 @@ namespace DotNet.Highcharts.Options.ParallelAxes
         public Number? AutoRotationLimit { get; set; }
 
         /// <summary>
-        /// Angular gauges and solid gauges only. The label's pixel distance from the perimeter of the plot area.
-        /// Default: -25
+        /// Polar charts only. The label's pixel distance from the perimeter of the plot area.
+        /// Default: 15
         /// </summary>
         public Number? Distance { get; set; }
 
@@ -48,13 +47,16 @@ namespace DotNet.Highcharts.Options.ParallelAxes
 
         /// <summary>
         /// Callback JavaScript function to format the label. The value is given by this.value. Additional properties for this are axis, chart, isFirst and isLast. The value of the default label formatter can be retrieved by calling this.axis.defaultLabelFormatter.call(this) within the function.
-        /// Default: undefined
+        /// Defaults to:
+        /// function() {
+        ///     return this.value;
+        /// }
         /// </summary>
         [JsonFormatter("{0}")]
         public string Formatter { get; set; }
 
         /// <summary>
-        /// How to handle overflowing labels on horizontal axis. If set to "allow", it will not be aligned at all. By default it "justify" labels inside the chart area. If there is room to move it, it will be aligned to the edge, else it will be removed.
+        /// How to handle overflowing labels on horizontal color axis. Can be undefined or "justify". If "justify", labels will not render outside the legend area. If there is room to move it, it will be aligned to the edge, else it will be removed.
         /// Default: justify
         /// </summary>
         public StringBool? Overflow { get; set; }
@@ -81,7 +83,7 @@ namespace DotNet.Highcharts.Options.ParallelAxes
         /// On vertical axes if label.align is right on a left-side axis or left on a right-side axis.
         /// On vertical axes if label.align is center.
         /// This can be turned off when for example the labels are rendered inside the plot area instead of outside.
-        /// Default: false
+        /// Default: undefined
         /// </summary>
         public bool? ReserveSpace { get; set; }
 

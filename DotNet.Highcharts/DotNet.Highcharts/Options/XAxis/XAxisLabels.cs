@@ -19,7 +19,7 @@ namespace DotNet.Highcharts.Options.XAxis
         /// For horizontal axes, the allowed degrees of label rotation to prevent overlapping labels. If there is enough space, labels are not rotated. As the chart gets narrower, it will start rotating the labels -45 degrees, then remove every second label and try again with rotations 0 and -45 etc. Set it to false to disable rotation, which will cause the labels to word-wrap if possible.
         /// Default: [45]
         /// </summary>
-        public Number?[] AutoRotation { get; set; }
+        public Number[] AutoRotation { get; set; }
 
         /// <summary>
         /// When each category width is more than this many pixels, we don't apply auto rotation. Instead, we lay out the axis label with word wrap. A lower limit makes sense when the label contains multiple short words that don't extend the available horizontal space for each label.<para />

@@ -96,7 +96,7 @@ namespace DotNet.Highcharts.Options
 		/// <summary>
 		/// <p>The margin between the outer edge of the chart and the plot area. The numbers in the array designate top, right, bottom and left respectively. Use the options <code>marginTop</code>, <code>marginRight</code>, <code>marginBottom</code> and <code>marginLeft</code> for shorthand setting of one option.</p> <p>Since version 2.1, the margin is 0 by default. The actual space is dynamically calculated  from the offset of axis labels, axis title, title, subtitle and legend in addition to the <code>spacingTop</code>, <code>spacingRight</code>, <code>spacingBottom</code> and <code>spacingLeft</code> options.</p> Defaults to <code>[null]</code>.
 		/// </summary>
-		public Number?[] Margin { get; set; }
+		public Number[] Margin { get; set; }
 
 		/// <summary>
 		/// The margin between the bottom outer edge of the chart and the plot area. Use this to set a fixed pixel value for the margin as opposed to the default dynamic margin. See also <code>spacingBottom</code>.
@@ -254,7 +254,7 @@ namespace DotNet.Highcharts.Options
         /// options for shorthand setting of one option.
         /// Default: [10, 10, 15, 10]
         /// </summary>
-        public Number?[] Spacing { get; set; }
+        public Number[] Spacing { get; set; }
 
 		/// <summary>
 		/// <p>The space between the bottom edge of the chart and the content (plot area, axis title and labels, title, subtitle or  legend in top position).</p> .

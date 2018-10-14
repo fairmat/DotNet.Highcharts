@@ -371,7 +371,7 @@ namespace DotNet.Highcharts.Options.ParallelAxes
         ///  behaviour of tickPixelInterval and tickInterval.
         /// Default: undefined
         /// </summary>
-        public Number?[] TickPositions { get; set; }
+        public Number[] TickPositions { get; set; }
 
         /// <summary>
         /// The pixel width of the major tick marks.

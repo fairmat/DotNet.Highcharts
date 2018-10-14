@@ -1139,7 +1139,7 @@ namespace DotNet.Highcharts.Samples.Controllers
         public ActionResult ColumnWithRotatedLabels()
         {
             Highcharts chart = new Highcharts("chart")
-                .InitChart(new Chart { DefaultSeriesType = ChartTypes.Column, Margin = new[] { 50, 50, 100, 80 } })
+                .InitChart(new Chart { DefaultSeriesType = ChartTypes.Column, Margin = new Number[] { 50, 50, 100, 80 } })
                 .SetTitle(new Title { Text = "World's largest cities per 2008" })
                 .SetXAxis(new XAxis
                     {
@@ -2247,7 +2247,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                 .InitChart(new Chart
                     {
                         DefaultSeriesType = ChartTypes.Scatter,
-                        Margin = new[] { 70, 50, 60, 80 },
+                        Margin = new Number[] { 70, 50, 60, 80 },
                         Events = new ChartEvents { Click = "ChartClickEvent" }
                     })
                 .AddJavascripFunction("ChartClickEvent", @"var x = e.xAxis[0].value,

@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using DotNet.Highcharts.Options.Boost;
+using DotNet.Highcharts.Options.ColorAxis;
 
 namespace DotNet.Highcharts
 {
@@ -34,6 +35,7 @@ namespace DotNet.Highcharts
         private Accessibility _accessibility;
         private Boost _boost;
         private Chart _chart;
+        private ColorAxis _colorAxis;
         private HighchartsData _data;
         private Credits _credits;
         private Labels _labels;
@@ -123,6 +125,17 @@ namespace DotNet.Highcharts
         public Highcharts SetCredits(Credits credits)
         {
             _credits = credits;
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the color axis settings.
+        /// </summary>
+        /// <param name="colorAxis"></param>
+        /// <returns></returns>
+        public Highcharts ColorAxis(ColorAxis colorAxis)
+        {
+            _colorAxis = colorAxis;
             return this;
         }
 
@@ -402,10 +415,22 @@ namespace DotNet.Highcharts
                 options.Append("accessibility: {0}".FormatWith(JsonSerializer.Serialize(_accessibility), 2));
             }
 
+            if (_boost != null)
+            {
+                options.AppendLine(", ");
+                options.Append("boost: {0}".FormatWith(JsonSerializer.Serialize(_boost)), 2);
+            }
+
             if (_credits != null)
             {
                 options.AppendLine(", ");
                 options.Append("credits: {0}".FormatWith(JsonSerializer.Serialize(_credits)), 2);
+            }
+
+            if (_colorAxis != null)
+            {
+                options.AppendLine(", ");
+                options.Append("colorAxis: {0}".FormatWith(JsonSerializer.Serialize(_colorAxis)), 2);
             }
 
             if (_data != null)

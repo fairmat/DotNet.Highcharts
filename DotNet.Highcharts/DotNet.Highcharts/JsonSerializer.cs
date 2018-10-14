@@ -66,7 +66,7 @@ namespace DotNet.Highcharts
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from decimal? item in obj select GetJsonObject(item, false)));
             if (obj is Number[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as Number[])));
-            if (obj is Number?[])
+            if (obj is Number[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from Number? item in obj select GetJsonObject(item, false)));
             if (obj is PercentageOrPixel[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from object item in obj select GetJsonObject((item as PercentageOrPixel).Value, false)));

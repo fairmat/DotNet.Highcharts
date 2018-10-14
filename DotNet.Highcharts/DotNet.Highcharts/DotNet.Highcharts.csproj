@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ColorAxisTypes.cs" />
     <Compile Include="Enums\TickmarkPlacements.cs" />
     <Compile Include="Helpers\StringNumber.cs" />
     <Compile Include="Helpers\StringBool.cs" />
@@ -116,6 +117,11 @@
     <Compile Include="Options\Chart.cs" />
     <Compile Include="Options\ChartEvents.cs" />
     <Compile Include="Options\ChartResetZoomButton.cs" />
+    <Compile Include="Options\ColorAxis\ColorAxis.cs" />
+    <Compile Include="Options\ColorAxis\ColorAxisDataClass.cs" />
+    <Compile Include="Options\ColorAxis\ColorAxisEvents.cs" />
+    <Compile Include="Options\ColorAxis\ColorAxisLabels.cs" />
+    <Compile Include="Options\ColorAxis\ColorAxisMarker.cs" />
     <Compile Include="Options\Colors.cs" />
     <Compile Include="Options\ContainerOptions.cs" />
     <Compile Include="Options\Credits.cs" />
