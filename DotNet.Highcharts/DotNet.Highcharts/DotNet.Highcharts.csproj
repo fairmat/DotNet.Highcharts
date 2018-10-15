@@ -376,6 +376,8 @@
     <Compile Include="Options\XAxis\XAxisPlotLinesLabel.cs" />
     <Compile Include="Options\XAxis\XAxisTitle.cs" />
     <Compile Include="Options\YAxis\YAxis.cs" />
+    <Compile Include="Options\YAxis\YAxisBreaks.cs" />
+    <Compile Include="Options\YAxis\YAxisCrosshair.cs" />
     <Compile Include="Options\YAxis\YAxisEvents.cs" />
     <Compile Include="Options\YAxis\YAxisLabels.cs" />
     <Compile Include="Options\YAxis\YAxisPlotBands.cs" />

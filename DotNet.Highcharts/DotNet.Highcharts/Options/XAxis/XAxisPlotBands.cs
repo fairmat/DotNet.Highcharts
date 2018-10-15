@@ -8,6 +8,24 @@ namespace DotNet.Highcharts.Options.XAxis
 	/// </summary>
 	public class XAxisPlotBands
 	{
+        /// <summary>
+        /// Border color for the plot band. Also requires borderWidth to be set.
+        /// Default: undefined
+        /// </summary>
+        public Color? BorderColor { get; set; }
+
+        /// <summary>
+        /// Border width for the plot band. Also requires borderColor to be set.
+        /// Default: 0
+        /// </summary>
+        public Number? BorderWidth { get; set; }
+
+        /// <summary>
+        /// A custom class name, in addition to the default highcharts-plot-band, to apply to each individual band.
+        /// Default: undefined
+        /// </summary>
+        public string ClassName { get; set; }
+
 		/// <summary>
 		/// The color of the plot band.
 		/// </summary>

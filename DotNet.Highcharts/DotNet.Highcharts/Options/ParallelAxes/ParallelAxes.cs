@@ -291,7 +291,7 @@ namespace DotNet.Highcharts.Options.ParallelAxes
         /// For datetime axes, this decides where to put the tick between weeks. 0 = Sunday, 1 = Monday.
         /// Default: 1
         /// </summary>
-        public Number? StartOfWeek { get; set; }
+        public WeekDays? StartOfWeek { get; set; }
 
         /// <summary>
         /// Whether to force the axis to start on a tick. Use this option with the maxPadding option to control the axis start.

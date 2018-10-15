@@ -14,11 +14,23 @@ namespace DotNet.Highcharts.Options.YAxis
 		/// </summary>
 		public HorizontalAligns? Align { get; set; }
 
+        /// <summary>
+        /// Allow the stack labels to overlap.
+        /// Default: false
+        /// </summary>
+        public bool? AllowOverlap { get; set; }
+
 		/// <summary>
 		/// Enable or disable the stack total labels.
 		/// Default: false
 		/// </summary>
 		public bool? Enabled { get; set; }
+
+        /// <summary>
+        /// A format string for the data label. Available variables are the same as for formatter.
+        /// Default: {total}
+        /// </summary>
+        public string Format { get; set; }
 
 		/// <summary>
 		/// Callback JavaScript function to format the label. The value is  given by <code>this.total</code>. Defaults to: <pre>function() { return this.total;}</pre>

@@ -36,6 +36,12 @@ namespace DotNet.Highcharts.Options.YAxis
 		/// </summary>
 		public HorizontalAligns? TextAlign { get; set; }
 
+        /// <summary>
+        /// Whether to use HTML to render the labels.
+        /// Default: false
+        /// </summary>
+        public bool? UseHTML { get; set; }
+
 		/// <summary>
 		/// Vertical alignment of the label relative to the plot band. Can be one of 'top', 'middle' or 'bottom'.
 		/// Default: top

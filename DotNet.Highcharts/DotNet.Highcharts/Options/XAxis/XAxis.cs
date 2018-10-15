@@ -18,7 +18,7 @@ namespace DotNet.Highcharts.Options.XAxis
         /// Disabled for logarithmic axes.
         /// Default: true
         /// </summary>
-        public bool? AllowTicks { get; set; }
+        public bool? AlignTicks { get; set; }
 
 		/// <summary>
 		/// Whether to allow decimals in this axis' ticks. When counting integers, like persons or hits on a web page, decimals must be avoided in the axis tick labels.
@@ -35,7 +35,7 @@ namespace DotNet.Highcharts.Options.XAxis
         /// An array defining breaks in the axis, the sections defined will be left out and all the points shifted closer to each other.
         /// Requires that the broken-axis.js module is loaded.
         /// </summary>
-        public XAxisBreaks Breaks { get; set; }
+        public XAxisBreaks[] Breaks { get; set; }
         
 		/// <summary>
 		/// <p>If categories are present for the xAxis, names are used instead of numbers for that axis. Since Highcharts 3.0, categories can also be extracted by giving each point a <a href='#series.data'>name</a> and setting axis <a href='#xAxis.type'>type</a> to <code>'category'</code>.</p><p>Example:<pre>categories: ['Apples', 'Bananas', 'Oranges']</pre> Defaults to <code>null</code></p>
@@ -340,7 +340,7 @@ namespace DotNet.Highcharts.Options.XAxis
         /// For categorized axes only. If on the tick mark is placed in the center of the category, if between the tick mark is placed between categories. The default is between if the tickInterval is 1, else on.
         /// Default: between
         /// </summary>
-        public string TickmarkPlacement { get; set; }
+        public Placement? TickmarkPlacement { get; set; }
 
 		/// <summary>
 		/// If tickInterval is <code>null</code> this option sets the approximate pixel interval of the tick marks. Not applicable to categorized axis. Defaults to <code>72</code>  for the Y axis and <code>100</code> forthe X axis.
@@ -400,7 +400,5 @@ namespace DotNet.Highcharts.Options.XAxis
         /// Default: true
         /// </summary>
         public bool? Visible { get; set; }
-
 	}
-
 }

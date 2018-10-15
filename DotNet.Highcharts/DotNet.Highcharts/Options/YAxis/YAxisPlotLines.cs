@@ -7,6 +7,11 @@ namespace DotNet.Highcharts.Options.YAxis
 {
 	public class YAxisPlotLines
 	{
+        /// <summary>
+        /// A custom class name, in addition to the default highcharts-plot-line, to apply to each individual line.
+        /// Default: undefined
+        /// </summary>
+        public string ClassName { get; set; }
 		/// <summary>
 		/// The color of the line.
 		/// </summary>
