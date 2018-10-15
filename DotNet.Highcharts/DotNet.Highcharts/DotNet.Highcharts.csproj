@@ -125,7 +125,7 @@
     <Compile Include="Options\Colors.cs" />
     <Compile Include="Options\ContainerOptions.cs" />
     <Compile Include="Options\Credits.cs" />
-    <Compile Include="Options\HigchartsData.cs" />
+    <Compile Include="Options\DataOptions\DataOptions.cs" />
     <Compile Include="Options\DataGrouping.cs" />
     <Compile Include="Options\Exporting\Exporting.cs" />
     <Compile Include="Options\Exporting\ExportingButtons.cs" />

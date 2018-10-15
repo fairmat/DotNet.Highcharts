@@ -6,6 +6,7 @@ using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
 using DotNet.Highcharts.Options;
 using DotNet.Highcharts.Options.Accessibility;
+using DotNet.Highcharts.Options.DataOptions;
 using DotNet.Highcharts.Options.Exporting;
 using DotNet.Highcharts.Options.Legend;
 using DotNet.Highcharts.Options.PlotOptions;
@@ -93,7 +94,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                 {
                     Type = ChartTypes.Column
                 })
-                .SetData(new HighchartsData
+                .SetDataOptions(new DataOptions
                 {
                     Rows = new object[,] {
                         {null, "Ola", "Kari"}, // series names

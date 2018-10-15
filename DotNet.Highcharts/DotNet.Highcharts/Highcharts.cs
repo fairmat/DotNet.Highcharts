@@ -13,6 +13,7 @@ using System.Text;
 using System.Web;
 using DotNet.Highcharts.Options.Boost;
 using DotNet.Highcharts.Options.ColorAxis;
+using DotNet.Highcharts.Options.DataOptions;
 
 namespace DotNet.Highcharts
 {
@@ -36,7 +37,7 @@ namespace DotNet.Highcharts
         private Boost _boost;
         private Chart _chart;
         private ColorAxis _colorAxis;
-        private HighchartsData _data;
+        private DataOptions _dataOptions;
         private Credits _credits;
         private Labels _labels;
         private Legend _legend;
@@ -144,9 +145,9 @@ namespace DotNet.Highcharts
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public Highcharts SetData(HighchartsData data)
+        public Highcharts SetDataOptions(DataOptions data)
         {
-            _data = data;
+            _dataOptions = data;
             return this;
         }
 
@@ -433,10 +434,10 @@ namespace DotNet.Highcharts
                 options.Append("colorAxis: {0}".FormatWith(JsonSerializer.Serialize(_colorAxis)), 2);
             }
 
-            if (_data != null)
+            if (_dataOptions != null)
             {
                 options.AppendLine(", ");
-                options.AppendLine("data: {0}".FormatWith(JsonSerializer.Serialize(_data)), 2);
+                options.AppendLine("data: {0}".FormatWith(JsonSerializer.Serialize(_dataOptions)), 2);
             }
 
             if (_labels != null)
