@@ -5,6 +5,10 @@ namespace DotNet.Highcharts.Helpers
     public class DateTimeLabel
     {
         /// <summary>
+        /// Format of the millisecond at the axis label.
+        /// </summary>
+        public string Millisecond { get; set; }
+        /// <summary>
         /// Format of the second at the axis label.
         /// </summary>
         public string Second { get; set; }

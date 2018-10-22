@@ -2,6 +2,8 @@
 using System.Drawing;
 using DotNet.Highcharts.Helpers;
 using DotNet.Highcharts.Options;
+using DotNet.Highcharts.Options.PlotOptions;
+using DotNet.Highcharts.Options.Series;
 using Point = DotNet.Highcharts.Options.Point;
 
 namespace DotNet.Highcharts.Samples.Models

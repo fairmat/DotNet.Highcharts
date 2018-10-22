@@ -5,6 +5,14 @@ using System.Web.Mvc;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
 using DotNet.Highcharts.Options;
+using DotNet.Highcharts.Options.Accessibility;
+using DotNet.Highcharts.Options.DataOptions;
+using DotNet.Highcharts.Options.Exporting;
+using DotNet.Highcharts.Options.Legend;
+using DotNet.Highcharts.Options.PlotOptions;
+using DotNet.Highcharts.Options.Series;
+using DotNet.Highcharts.Options.XAxis;
+using DotNet.Highcharts.Options.YAxis;
 using DotNet.Highcharts.Samples.Models;
 using Point = DotNet.Highcharts.Options.Point;
 
@@ -22,6 +30,10 @@ namespace DotNet.Highcharts.Samples.Controllers
                         MarginBottom = 25,
                         ClassName = "chart"
                     })
+                .SetContainerOptions(new ContainerOptions
+                {
+                    MatchParentHeight = true
+                })
                 .SetTitle(new Title
                     {
                         Text = "Monthly Average Temperature",
@@ -70,6 +82,27 @@ namespace DotNet.Highcharts.Samples.Controllers
                         new Series { Name = "London", Data = new Data(ChartsData.LondonData) }
                     }
                 );
+
+            return View(chart);
+        }
+
+        public ActionResult ColumnData()
+        {
+            var chart = new Highcharts("chart")
+                .SetTitle(new Title { Text = "Data input as row arrays" })
+                .InitChart(new Chart
+                {
+                    Type = ChartTypes.Column
+                })
+                .SetDataOptions(new DataOptions
+                {
+                    Rows = new object[,] {
+                        {null, "Ola", "Kari"}, // series names
+                        {"Apples", 1, 5}, // category and values
+                        {"Pears", 4, 4}, // category and values
+                        {"Oranges", 3, 2} // category and values
+                     }
+                });
 
             return View(chart);
         }
@@ -1107,7 +1140,7 @@ namespace DotNet.Highcharts.Samples.Controllers
         public ActionResult ColumnWithRotatedLabels()
         {
             Highcharts chart = new Highcharts("chart")
-                .InitChart(new Chart { DefaultSeriesType = ChartTypes.Column, Margin = new[] { 50, 50, 100, 80 } })
+                .InitChart(new Chart { DefaultSeriesType = ChartTypes.Column, Margin = new Number[] { 50, 50, 100, 80 } })
                 .SetTitle(new Title { Text = "World's largest cities per 2008" })
                 .SetXAxis(new XAxis
                     {
@@ -1338,6 +1371,70 @@ namespace DotNet.Highcharts.Samples.Controllers
 
                             })
                     });
+
+            return View(chart);
+        }
+
+        public ActionResult CustomFocusRing()
+        {
+            var chart = new Highcharts("chart")
+                .InitChart(new Chart
+                {
+                    Type = ChartTypes.Pie,
+                    Description = "Respondents' current level of employment. The results clearly reflect the significant unemployment and underemployment of individuals with disabilities, with only 40.7% of respondents being employed full time."
+                })
+                .SetAccessibility(new Accessibility
+                {
+                    KeyboardNavigation = new AccessibilityKeyboardNavigation
+                    {
+                        FocusBorder = new FocusBorder
+                        {
+                            Style = new FocusBorderStyle
+                            {
+                                LineWidth = 3,
+                                Color = ColorTranslator.FromHtml("#aa1111"),
+                                BorderRadius = 5
+                            },
+                            Margin = 4
+                        }
+                    }
+                })
+                .SetTitle(new Title
+                {
+                    Text = "WEBAIM survey"
+                })
+                .SetSubtitle(new Subtitle
+                {
+                    Text = "Level of employment"
+                })
+                .SetPlotOptions(new PlotOptions
+                {
+                    Series = new PlotOptionsSeries
+                    {
+                        DataLabels = new PlotOptionsSeriesDataLabels
+                        {
+                            Enabled = true,
+                            Format = "<b>{point.name}</b>: {point.percentage:.1f} %"
+                        }
+                    }
+                })
+                .SetSeries(
+                    new Series
+                    {
+                        Name = "Percentage Usage",
+                        ShowInLegend = true,
+                        PlotOptionsPie = new PlotOptionsPie
+                        {
+                            Depth = 40
+                        },
+                        Data = new Data(new object[]
+                        {
+                            new object[] {"Full time employment", 40.7},
+                            new object[] {"Part time employment", 13.9},
+                            new object[] {"Unemployed", 45.5}
+                        })
+                    }
+                );
 
             return View(chart);
         }
@@ -2151,7 +2248,7 @@ namespace DotNet.Highcharts.Samples.Controllers
                 .InitChart(new Chart
                     {
                         DefaultSeriesType = ChartTypes.Scatter,
-                        Margin = new[] { 70, 50, 60, 80 },
+                        Margin = new Number[] { 70, 50, 60, 80 },
                         Events = new ChartEvents { Click = "ChartClickEvent" }
                     })
                 .AddJavascripFunction("ChartClickEvent", @"var x = e.xAxis[0].value,

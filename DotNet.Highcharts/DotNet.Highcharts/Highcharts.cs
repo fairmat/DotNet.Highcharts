@@ -1,50 +1,67 @@
-﻿using System;
+﻿using DotNet.Highcharts.Helpers;
+using DotNet.Highcharts.Options;
+using DotNet.Highcharts.Options.Accessibility;
+using DotNet.Highcharts.Options.Exporting;
+using DotNet.Highcharts.Options.Legend;
+using DotNet.Highcharts.Options.PlotOptions;
+using DotNet.Highcharts.Options.Series;
+using DotNet.Highcharts.Options.XAxis;
+using DotNet.Highcharts.Options.YAxis;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
-using DotNet.Highcharts.Helpers;
-using DotNet.Highcharts.Options;
+using DotNet.Highcharts.Options.Boost;
+using DotNet.Highcharts.Options.ColorAxis;
+using DotNet.Highcharts.Options.DataOptions;
 
 namespace DotNet.Highcharts
 {
     public class Highcharts : IHtmlString
     {
-        internal string Name { get; private set; }
-        internal string ContainerName { get; private set; }
+        internal string Name { get; }
+        internal string ContainerName { get; }
 
-        internal bool UseJQueryPlugin { get; private set; }
+        internal bool UseJQueryPlugin { get; }
 
-        internal IDictionary<string, string> JsVariables { get; private set; }
-        internal IDictionary<string, string> JsFunctions { get; private set; }
+        internal IDictionary<string, string> JsVariables { get; }
+        internal IDictionary<string, string> JsFunctions { get; }
 
         internal GlobalOptions Options { get; private set; }
 
         internal string FunctionName { get; private set; }
 
-        Chart _Chart;
-        Credits _Credits;
-        Labels _Labels;
-        Legend _Legend;
-        Loading _Loading;
-        PlotOptions _PlotOptions;
-        Pane _Pane;
-        Pane[] _PaneArray;
-        Series _Series;
-        Series[] _SeriesArray;
-        Subtitle _Subtitle;
-        Title _Title;
-        Tooltip _Tooltip;
-        XAxis _XAxis;
-        XAxis[] _XAxisArray;
-        YAxis _YAxis;
-        YAxis[] _YAxisArray;
-        Exporting _Exporting;
-        Navigation _Navigation;
+        internal ContainerOptions ContainerOptions { get; private set; }
+
+        private Accessibility _accessibility;
+        private Boost _boost;
+        private Chart _chart;
+        private ColorAxis _colorAxis;
+        private DataOptions _dataOptions;
+        private Credits _credits;
+        private Labels _labels;
+        private Legend _legend;
+        private Loading _loading;
+        private PlotOptions _plotOptions;
+        private Pane _pane;
+        private Pane[] _paneArray;
+        private Series _series;
+        private Series[] _seriesArray;
+        private Subtitle _subtitle;
+        private Title _title;
+        private Tooltip _tooltip;
+        private XAxis _xAxis;
+        private XAxis[] _xAxisArray;
+        private YAxis _yAxis;
+        private YAxis[] _yAxisArray;
+        private Exporting _exporting;
+        private Navigation _navigation;
 
         /// <summary>
         /// The chart object is the JavaScript object representing a single chart in the web page.
         /// </summary>
         /// <param name="name">The object name of the chart and related container</param>
+        /// <param name="useJQueryPlugin"></param>
         /// <see cref="http://www.highcharts.com/ref/"/>
         public Highcharts(string name, bool useJQueryPlugin = false)
         {
@@ -76,7 +93,29 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts InitChart(Chart chart)
         {
-            _Chart = chart;
+            _chart = chart;
+            return this;
+        }
+
+        /// <summary>
+        /// Options regarding the chart accessibility options.
+        /// </summary>
+        /// <param name="accessibility"></param>
+        /// <returns></returns>
+        public Highcharts SetAccessibility(Accessibility accessibility)
+        {
+            _accessibility = accessibility;
+            return this;
+        }
+
+        /// <summary>
+        /// Options regarding boost. Using boost enables WebGL rendering instead of the default Javascript rendering.
+        /// </summary>
+        /// <param name="boost"></param>
+        /// <returns></returns>
+        public Highcharts SetBoost(Boost boost)
+        {
+            _boost = boost;
             return this;
         }
 
@@ -86,7 +125,29 @@ namespace DotNet.Highcharts
         /// </summary>
         public Highcharts SetCredits(Credits credits)
         {
-            _Credits = credits;
+            _credits = credits;
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the color axis settings.
+        /// </summary>
+        /// <param name="colorAxis"></param>
+        /// <returns></returns>
+        public Highcharts ColorAxis(ColorAxis colorAxis)
+        {
+            _colorAxis = colorAxis;
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the Highcharts data option.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public Highcharts SetDataOptions(DataOptions data)
+        {
+            _dataOptions = data;
             return this;
         }
 
@@ -97,7 +158,7 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetLabels(Labels labels)
         {
-            _Labels = labels;
+            _labels = labels;
             return this;
         }
 
@@ -108,7 +169,7 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetLegend(Legend legend)
         {
-            _Legend = legend;
+            _legend = legend;
             return this;
         }
 
@@ -122,7 +183,7 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetLoading(Loading loading)
         {
-            _Loading = loading;
+            _loading = loading;
             return this;
         }
 
@@ -137,24 +198,24 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetPlotOptions(PlotOptions plotOptions)
         {
-            _PlotOptions = plotOptions;
+            _plotOptions = plotOptions;
             return this;
         }
 
         /// <summary>
         /// Applies only to polar charts and angular gauges. This configuration object holds general options for the combined X and Y axes set. Each xAxis or yAxis can reference the pane by index.
         /// </summary>
-        /// <param name="pane"></param>
+        /// <param name="paneArray"></param>
         /// <returns></returns>
         public Highcharts SetPane(Pane[] paneArray)
         {
-            _PaneArray = paneArray;
+            _paneArray = paneArray;
             return this;
         }
 
         public Highcharts SetPane(Pane pane)
         {
-            _Pane = pane;
+            _pane = pane;
             return this;
         }
 
@@ -167,12 +228,12 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetSeries(Series series)
         {
-            _Series = series;
+            _series = series;
             return this;
         }
         public Highcharts SetSeries(Series[] seriesArray)
         {
-            _SeriesArray = seriesArray;
+            _seriesArray = seriesArray;
             return this;
         }
 
@@ -183,7 +244,7 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetSubtitle(Subtitle subtitle)
         {
-            _Subtitle = subtitle;
+            _subtitle = subtitle;
             return this;
         }
 
@@ -194,7 +255,7 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetTitle(Title title)
         {
-            _Title = title;
+            _title = title;
             return this;
         }
 
@@ -205,7 +266,7 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetTooltip(Tooltip tooltip)
         {
-            _Tooltip = tooltip;
+            _tooltip = tooltip;
             return this;
         }
 
@@ -217,12 +278,12 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetXAxis(XAxis xAxis)
         {
-            _XAxis = xAxis;
+            _xAxis = xAxis;
             return this;
         }
         public Highcharts SetXAxis(XAxis[] xAxisArray)
         {
-            _XAxisArray = xAxisArray;
+            _xAxisArray = xAxisArray;
             return this;
         }
 
@@ -234,12 +295,12 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetYAxis(YAxis yAxis)
         {
-            _YAxis = yAxis;
+            _yAxis = yAxis;
             return this;
         }
         public Highcharts SetYAxis(YAxis[] yAxisArray)
         {
-            _YAxisArray = yAxisArray;
+            _yAxisArray = yAxisArray;
             return this;
         }
 
@@ -250,7 +311,7 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetExporting(Exporting exporting)
         {
-            _Exporting = exporting;
+            _exporting = exporting;
             return this;
         }
 
@@ -261,7 +322,13 @@ namespace DotNet.Highcharts
         /// <returns></returns>
         public Highcharts SetNavigation(Navigation navigation)
         {
-            _Navigation = navigation;
+            _navigation = navigation;
+            return this;
+        }
+
+        public Highcharts SetContainerOptions(ContainerOptions options)
+        {
+            ContainerOptions = options;
             return this;
         }
 
@@ -304,16 +371,20 @@ namespace DotNet.Highcharts
         {
             StringBuilder scripts = new StringBuilder();
 
-            scripts.AppendLine("<div id='{0}'></div>".FormatWith(ContainerName));
+            string style = "";
+            if (ContainerOptions != null && ContainerOptions.MatchParentHeight)
+                style = "style='height: 100%;'";
+
+            scripts.AppendLine("<div id='{0}' {1}></div>".FormatWith(ContainerName, style));
             scripts.AppendLine("<script type='text/javascript'>");
             if (Options != null)
                 scripts.AppendLine("Highcharts.setOptions({0});".FormatWith(JsonSerializer.Serialize(Options)));
 
             scripts.AppendLine("var {0};".FormatWith(Name));
-            scripts.AppendLine(!string.IsNullOrEmpty(FunctionName) ? string.Format("function {0}() {{", FunctionName) : "$(document).ready(function() {");
+            scripts.AppendLine(!string.IsNullOrEmpty(FunctionName) ? $"function {FunctionName}() {{" : "$(document).ready(function() {");
             scripts.AppendHighchart(this);
             scripts.AppendLine(!string.IsNullOrEmpty(FunctionName) ? "}" : "});");
-            
+
             scripts.AppendLine("</script>");
 
             return scripts.ToString();
@@ -327,120 +398,146 @@ namespace DotNet.Highcharts
 
             if (UseJQueryPlugin)
             {
-                if (_Chart != null)
+                if (_chart != null)
                 {
-                    options.Append("chart: {{ {0} }}".FormatWith(JsonSerializer.Serialize(_Chart, false)));
+                    options.Append("chart: {{ {0} }}".FormatWith(JsonSerializer.Serialize(_chart, false)));
                 }
             }
             else
             {
-                options.Append(_Chart != null ? "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_Chart, false)) : "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
+                options.Append(_chart != null ? 
+                    "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_chart, false)) : 
+                    "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
             }
 
-            if (_Credits != null)
+            if (_accessibility != null)
             {
                 options.AppendLine(", ");
-                options.Append("credits: {0}".FormatWith(JsonSerializer.Serialize(_Credits)), 2);
+                options.Append("accessibility: {0}".FormatWith(JsonSerializer.Serialize(_accessibility), 2));
             }
 
-            if (_Labels != null)
+            if (_boost != null)
             {
                 options.AppendLine(", ");
-                options.Append("labels: {0}".FormatWith(JsonSerializer.Serialize(_Labels)), 2);
+                options.Append("boost: {0}".FormatWith(JsonSerializer.Serialize(_boost)), 2);
             }
 
-            if (_Legend != null)
+            if (_credits != null)
             {
                 options.AppendLine(", ");
-                options.Append("legend: {0}".FormatWith(JsonSerializer.Serialize(_Legend)), 2);
+                options.Append("credits: {0}".FormatWith(JsonSerializer.Serialize(_credits)), 2);
             }
 
-            if (_Loading != null)
+            if (_colorAxis != null)
             {
                 options.AppendLine(", ");
-                options.Append("loading: {0}".FormatWith(JsonSerializer.Serialize(_Loading)), 2);
+                options.Append("colorAxis: {0}".FormatWith(JsonSerializer.Serialize(_colorAxis)), 2);
             }
 
-            if (_PlotOptions != null)
+            if (_dataOptions != null)
             {
                 options.AppendLine(", ");
-                options.Append("plotOptions: {0}".FormatWith(JsonSerializer.Serialize(_PlotOptions)), 2);
+                options.AppendLine("data: {0}".FormatWith(JsonSerializer.Serialize(_dataOptions)), 2);
             }
 
-            if (_Pane != null)
+            if (_labels != null)
             {
                 options.AppendLine(", ");
-                options.Append("pane: {0}".FormatWith(JsonSerializer.Serialize(_Pane)), 2);
+                options.Append("labels: {0}".FormatWith(JsonSerializer.Serialize(_labels)), 2);
             }
 
-            if (_PaneArray != null)
+            if (_legend != null)
             {
                 options.AppendLine(", ");
-                options.Append("pene: {0}".FormatWith(JsonSerializer.Serialize(_PaneArray)), 2);
+                options.Append("legend: {0}".FormatWith(JsonSerializer.Serialize(_legend)), 2);
             }
 
-            if (_Subtitle != null)
+            if (_loading != null)
             {
                 options.AppendLine(", ");
-                options.Append("subtitle: {0}".FormatWith(JsonSerializer.Serialize(_Subtitle)), 2);
+                options.Append("loading: {0}".FormatWith(JsonSerializer.Serialize(_loading)), 2);
             }
 
-            if (_Title != null)
+            if (_plotOptions != null)
             {
                 options.AppendLine(", ");
-                options.Append("title: {0}".FormatWith(JsonSerializer.Serialize(_Title)), 2);
+                options.Append("plotOptions: {0}".FormatWith(JsonSerializer.Serialize(_plotOptions)), 2);
             }
 
-            if (_Tooltip != null)
+            if (_pane != null)
             {
                 options.AppendLine(", ");
-                options.Append("tooltip: {0}".FormatWith(JsonSerializer.Serialize(_Tooltip)), 2);
+                options.Append("pane: {0}".FormatWith(JsonSerializer.Serialize(_pane)), 2);
             }
 
-            if (_XAxis != null)
+            if (_paneArray != null)
             {
                 options.AppendLine(", ");
-                options.Append("xAxis: {0}".FormatWith(JsonSerializer.Serialize(_XAxis)), 2);
+                options.Append("pene: {0}".FormatWith(JsonSerializer.Serialize(_paneArray)), 2);
             }
 
-            if (_XAxisArray != null)
+            if (_subtitle != null)
             {
                 options.AppendLine(", ");
-                options.Append("xAxis: {0}".FormatWith(JsonSerializer.Serialize(_XAxisArray)), 2);
+                options.Append("subtitle: {0}".FormatWith(JsonSerializer.Serialize(_subtitle)), 2);
             }
 
-            if (_YAxis != null)
+            if (_title != null)
             {
                 options.AppendLine(", ");
-                options.Append("yAxis: {0}".FormatWith(JsonSerializer.Serialize(_YAxis)), 2);
-            }
-            else if (_YAxisArray != null)
-            {
-                options.AppendLine(", ");
-                options.Append("yAxis: {0}".FormatWith(JsonSerializer.Serialize(_YAxisArray)), 2);
+                options.Append("title: {0}".FormatWith(JsonSerializer.Serialize(_title)), 2);
             }
 
-            if (_Exporting != null)
+            if (_tooltip != null)
             {
                 options.AppendLine(", ");
-                options.Append("exporting: {0}".FormatWith(JsonSerializer.Serialize(_Exporting)), 2);
+                options.Append("tooltip: {0}".FormatWith(JsonSerializer.Serialize(_tooltip)), 2);
             }
 
-            if (_Navigation != null)
+            if (_xAxis != null)
             {
                 options.AppendLine(", ");
-                options.Append("navigation: {0}".FormatWith(JsonSerializer.Serialize(_Navigation)), 2);
+                options.Append("xAxis: {0}".FormatWith(JsonSerializer.Serialize(_xAxis)), 2);
             }
 
-            if (_Series != null)
+            if (_xAxisArray != null)
             {
                 options.AppendLine(", ");
-                options.Append("series: [{0}]".FormatWith(JsonSerializer.Serialize(_Series)), 2);
+                options.Append("xAxis: {0}".FormatWith(JsonSerializer.Serialize(_xAxisArray)), 2);
             }
-            else if (_SeriesArray != null)
+
+            if (_yAxis != null)
             {
                 options.AppendLine(", ");
-                options.Append("series: {0}".FormatWith(JsonSerializer.Serialize(_SeriesArray)), 2);
+                options.Append("yAxis: {0}".FormatWith(JsonSerializer.Serialize(_yAxis)), 2);
+            }
+            else if (_yAxisArray != null)
+            {
+                options.AppendLine(", ");
+                options.Append("yAxis: {0}".FormatWith(JsonSerializer.Serialize(_yAxisArray)), 2);
+            }
+
+            if (_exporting != null)
+            {
+                options.AppendLine(", ");
+                options.Append("exporting: {0}".FormatWith(JsonSerializer.Serialize(_exporting)), 2);
+            }
+
+            if (_navigation != null)
+            {
+                options.AppendLine(", ");
+                options.Append("navigation: {0}".FormatWith(JsonSerializer.Serialize(_navigation)), 2);
+            }
+
+            if (_series != null)
+            {
+                options.AppendLine(", ");
+                options.Append("series: [{0}]".FormatWith(JsonSerializer.Serialize(_series)), 2);
+            }
+            else if (_seriesArray != null)
+            {
+                options.AppendLine(", ");
+                options.Append("series: {0}".FormatWith(JsonSerializer.Serialize(_seriesArray)), 2);
             }
             options.AppendLine();
 

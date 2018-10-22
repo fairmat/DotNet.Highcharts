@@ -13,9 +13,7 @@ namespace DotNet.Highcharts
 {
     public class JsonSerializer
     {
-        const string JSON_STRING_ARRAY = "['{0}']";
         const string JSON_NUMBER_ARRAY = "[{0}]";
-        const string JSON_NUMBER_MULTI_ARRAY = "[{0}, {1}]";
         const string JSON_OBJECT_FORMAT = "{{ {0} }}";
         const string JSON_PROPERTY_WITH_VALUE_FORMAT = "{0}: {1}";
         const string JSON_STRING_FORMAT = "'{0}'";
@@ -68,7 +66,7 @@ namespace DotNet.Highcharts
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from decimal? item in obj select GetJsonObject(item, false)));
             if (obj is Number[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", (obj as Number[])));
-            if (obj is Number?[])
+            if (obj is Number[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from Number? item in obj select GetJsonObject(item, false)));
             if (obj is PercentageOrPixel[])
                 return string.Format(useCurlyBracketsForObject ? JSON_NUMBER_ARRAY : JSON_DEFAULT_FORMAT, String.Join(", ", from object item in obj select GetJsonObject((item as PercentageOrPixel).Value, false)));
@@ -149,7 +147,7 @@ namespace DotNet.Highcharts
                     jsonFormat = JSON_DEFAULT_FORMAT;
                 return GetJsonString(formatter.JsonValueFormat, jsonFormat, value.ToString().Replace("\r\n", " ").Replace("  ", ""));
             }
-            if (value is int || value is long || value is short || value is byte || type == typeof(Number))
+            if (value is int || value is long || value is short || value is byte || type == typeof(Number) || type == typeof(StringNumber) || type == typeof(StringBool))
                 return GetJsonString(formatter.JsonValueFormat, JSON_DEFAULT_FORMAT, value.ToString());
             if (value is double)
                 return GetJsonString(formatter.JsonValueFormat, JSON_DEFAULT_FORMAT, ((double)value).ToString(CultureInfo.InvariantCulture));
@@ -244,10 +242,25 @@ namespace DotNet.Highcharts
 
         static string GetMultiDimentionArray(object[,] array)
         {
-            List<string> json = new List<string>();
-            for (int i = 0; i <= array.GetUpperBound(0); i++)
-                json.Add(string.Format(JSON_NUMBER_MULTI_ARRAY, GetJsonObject(array[i, 0], true), GetJsonObject(array[i, 1], true)));
-            return string.Join(", ", json);
+            var arrays = new List<string>();
+            for (var x = 0; x < array.GetLength(0); x++)
+            {
+                var rowList = new List<string>();
+                var sb = new StringBuilder();
+
+                sb.Append("[");
+
+                for (var y = 0; y < array.GetLength(1); y++)
+                {
+                    rowList.Add(GetJsonObject(array[x, y], true));
+                }
+
+                sb.Append(string.Join(", ", rowList));
+                sb.Append("]");
+                arrays.Add(sb.ToString());
+            }
+
+            return string.Join(", ", arrays);
         }
     }
 }

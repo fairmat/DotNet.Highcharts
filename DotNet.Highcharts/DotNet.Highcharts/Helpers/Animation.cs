@@ -31,5 +31,17 @@ namespace DotNet.Highcharts.Helpers
         /// </summary>
         /// <see cref="http://www.highcharts.com/ref/#chart--animation"/>
         public EasingTypes? Easing { get; set; }
+
+        /// <summary>
+        /// A callback function to exectute when the animation finishes.
+        /// </summary>
+        [JsonFormatter("{0}")]
+        public string Complete { get; set; }
+
+        /// <summary>
+        /// A callback function to execute on each step of each attribute or CSS property that's being animated. The first argument contains information about the animation and progress.
+        /// </summary>
+        [JsonFormatter("{0}")]
+        public string Step { get; set; }
     }
 }
