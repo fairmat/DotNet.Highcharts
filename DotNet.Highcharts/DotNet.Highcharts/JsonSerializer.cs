@@ -190,9 +190,26 @@ namespace DotNet.Highcharts
         {
             Color color = (Color)obj;
             if (color.IsNamedColor)
-                return color.IsKnownColor ? GetJsonString(format, JSON_STRING_FORMAT, color.Name.ToLower()) : GetJsonString(format, JSON_DEFAULT_FORMAT, color.Name);
+            {
+#if NETFRAMEWORK || NETCOREAPP
+                var isKnownColor = color.IsKnownColor;
+#else
+                var isKnownColor = false;
+#endif
+                return isKnownColor
+                    ? GetJsonString(format, JSON_STRING_FORMAT, color.Name.ToLower())
+                    : GetJsonString(format, JSON_DEFAULT_FORMAT, color.Name);
+            }
+
             if (color.A == 255)
-                return GetJsonString(format, JSON_STRING_FORMAT, ColorTranslator.ToHtml(color));
+            {
+#if NETFRAMEWORK || NETCOREAPP
+                var html = ColorTranslator.ToHtml(color);
+#else
+                var html = GetRgbColor(color);
+#endif
+                return GetJsonString(format, JSON_STRING_FORMAT, html);
+            }
             return GetJsonString(format, JSON_STRING_FORMAT, GetRgbColor(color));
         }
 
