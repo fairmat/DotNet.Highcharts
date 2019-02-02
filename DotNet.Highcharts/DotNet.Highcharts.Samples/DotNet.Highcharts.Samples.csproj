@@ -13,6 +13,7 @@
     <RootNamespace>DotNet.Highcharts.Samples</RootNamespace>
     <AssemblyName>DotNet.Highcharts.Samples</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <RuntimeIdentifier>win</RuntimeIdentifier>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <OldToolsVersion>4.0</OldToolsVersion>
@@ -2426,7 +2427,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Demo\BasicLine.cshtml" />
