@@ -17,7 +17,10 @@ using DotNet.Highcharts.Options.DataOptions;
 
 namespace DotNet.Highcharts
 {
-    public class Highcharts : IHtmlString
+    public class Highcharts
+#if NETFRAMEWORK
+        : System.Web.IHtmlString
+#endif
     {
         internal string Name { get; }
         internal string ContainerName { get; }

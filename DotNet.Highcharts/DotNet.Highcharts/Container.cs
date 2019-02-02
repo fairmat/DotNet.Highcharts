@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web;
 
 namespace DotNet.Highcharts
 {
-    public class Container : IHtmlString
+    public class Container
+#if NETFRAMEWORK
+        : System.Web.IHtmlString
+#endif
     {
         readonly List<Highcharts> _Highcharts;
 
