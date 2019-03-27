@@ -25,7 +25,8 @@
         Bubble,
         Candlestick,
         Ohlc,
-        Flags
+        Flags,
+        Heatmap
     }
 
     #endregion
