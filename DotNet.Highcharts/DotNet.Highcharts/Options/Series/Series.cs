@@ -40,11 +40,26 @@ namespace DotNet.Highcharts.Options.Series
 		/// </summary>
 		public string Name { get; set; }
 
-        /// <summary>
-        /// Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series.
-        /// Default: true
-        /// </summary>
-        public bool? ShowInLegend { get; set; }
+		/// <summary>
+		/// The column size - how many X axis units each column in the heatmap should span.
+		/// </summary>
+		public Number? Colsize { get; set; }
+
+		/// <summary>
+		/// The color applied to null points.
+		/// </summary>
+		public Color? NullColor { get; set; }
+
+		/// <summary>
+		/// A configuration object for the tooltip rendering of each single series.
+		/// </summary>
+		public Tooltip Tooltip { get; set; }
+
+		/// <summary>
+		/// Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series.
+		/// Default: true
+		/// </summary>
+		public bool? ShowInLegend { get; set; }
 
 		/// <summary>
 		/// This option allows grouping series in a stacked chart. The stack option can be a string  or a number or anything else, as long as the grouped series' stack options match each other.
@@ -71,7 +86,7 @@ namespace DotNet.Highcharts.Options.Series
 		public Color? Color { get; set; }
 
 		public Color? UpColor { get; set; }
-        
+
 		/// <summary>
 		/// Gets or sets the series' visibility state.
 		/// Default: null, means visible.
@@ -129,11 +144,11 @@ namespace DotNet.Highcharts.Options.Series
 		[JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
 		public PlotOptionsBubble PlotOptionsBubble { get; set; }
 
-        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
-        public PlotOptionsOhlc PlotOptionsOhlc { get; set; }
+		[JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+		public PlotOptionsOhlc PlotOptionsOhlc { get; set; }
 
-        [JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
-        public PlotOptionsFlags PlotOptionsFlags { get; set; }
+		[JsonFormatter(addPropertyName: false, useCurlyBracketsForObject: false)]
+		public PlotOptionsFlags PlotOptionsFlags { get; set; }
 	}
 
 }
