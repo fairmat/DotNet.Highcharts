@@ -36,6 +36,11 @@ namespace DotNet.Highcharts.Options.Series
 		public Number? LegendIndex { get; set; }
 
 		/// <summary>
+		/// An array specifying which option maps to which key in the data point array. This makes it convenient to work with unstructured data arrays from different sources.
+        /// </summary>
+		public string[] Keys { get; set; }
+
+		/// <summary>
 		/// The name of the series as shown in the legend, tooltip etc.
 		/// </summary>
 		public string Name { get; set; }
