@@ -37,7 +37,7 @@ namespace DotNet.Highcharts.Options.Series
 
 		/// <summary>
 		/// An array specifying which option maps to which key in the data point array. This makes it convenient to work with unstructured data arrays from different sources.
-        /// </summary>
+		/// </summary>
 		public string[] Keys { get; set; }
 
 		/// <summary>
