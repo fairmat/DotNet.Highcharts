@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net452;netstandard2.0;netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>net452;netstandard2.0;net8.0</TargetFrameworks>
     <AssemblyTitle>CareATC.DotNet.Highcharts</AssemblyTitle>
-    <Company>CareATC, Inc</Company>
-    <Product>CareATC.DotNet.Highcharts</Product>
-    <Copyright>Copyright © CareATC 2018</Copyright>
-    <VersionPrefix>5.0.0</VersionPrefix>
+    <Company>Fairmat S.r.l;CareATC, Inc</Company>
+    <Product>DotNet.Highcharts</Product>
+    <Copyright>Copyright © 2012 Vangel Kolarov;Copyright © 2013 Fairmat SRL;Copyright © 2018 CareATC</Copyright>
+    <Version>6.0.0</Version>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <AssemblyOriginatorKeyFile>DotNet.Highcharts.snk</AssemblyOriginatorKeyFile>
@@ -22,11 +22,11 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Drawing.Common" Version="4.7.2" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.11" />
     <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
-    <PackageReference Include="System.Drawing.Common" Version="4.7.2" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="System.Drawing.Common" Version="8.0.11" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties" />
